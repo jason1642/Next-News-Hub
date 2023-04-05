@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import './SiteHeader.css'
-
+import Button from '@mui/material/Button';
 
 interface ISiteHeaderProps {
 }
@@ -32,8 +32,8 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
 
 
       <input className="search-box" type="text" placeholder="Search" />
-      <button className="search-button">I&apos;m feeling lucky!</button>
-      <button className="search-button">Search</button>
+      {/* <Button className="search-button">I&apos;m feeling lucky!</Button> */}
+      <Button className="search-button">Search</Button>
      
 
         
