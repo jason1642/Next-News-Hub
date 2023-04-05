@@ -15,8 +15,9 @@ const LinkContainer = styled(Link)`
   display: flex;
   height: inherit;
   align-items: center;
-
+  border: 1px solid white;
   /* width: 100%; */
+  justify-self: flex-start;
 `
 
 const Title = styled.div`
@@ -25,12 +26,19 @@ const Title = styled.div`
 `;
 const Container = styled.header`
   display: flex;
+  /* justify-content: space-around; */
 `;
 
 const SearchBox = styled.div`
   display:flex;
+  border: 1px solid white;
   justify-content: center;
 `;
+
+const FillerDiv = styled.div`
+
+`
+
 
 const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
   return (
@@ -57,7 +65,7 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
       >Search</Button>
       </SearchBox>
 
-
+      <FillerDiv />
      
 
         
