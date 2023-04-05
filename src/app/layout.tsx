@@ -1,5 +1,5 @@
 import './globals.css'
-import Header from '../components/SiteHeader'
+import Header from '../components/Header/SiteHeader'
 export const metadata = {
   title: 'Next News Hub',
   description: 'Welcome to Next News Hub',
