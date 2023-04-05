@@ -6,7 +6,7 @@ import Link from 'next/link';
 import './SiteHeader.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
+import { StyledComponent } from 'styled-components';
 
 interface ISiteHeaderProps {
 }
@@ -35,9 +35,7 @@ const SearchBox = styled.div`
   justify-content: center;
 `;
 
-const FillerDiv = styled.div`
-  
-`
+let FillerDiv: React.FunctionComponent = ()=> <div>wewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwe</div>
 
 
 const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
@@ -65,7 +63,7 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
       >Search</Button>
       </SearchBox>
 
-      <FillerDiv />
+        <FillerDiv/>
      
 
         
