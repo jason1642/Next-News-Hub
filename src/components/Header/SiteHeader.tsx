@@ -36,7 +36,7 @@ const SearchBox = styled.div`
 `;
 
 const FillerDiv = styled.div`
-
+  
 `
 
 
@@ -51,7 +51,7 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
         height={75}
         // className="header-img"
         src="https://cdn3.iconfinder.com/data/icons/abstract-tree-wood-forest-ecology-landscape-eco-gr/1470/green_eco_leaves_circle_logo_eco_recycle-512.png" />
-      <Title>Next News Hub</Title>
+      <div className='font-bold text-3xl'>Next News Hub</div>
       </LinkContainer>
 
       <SearchBox>
