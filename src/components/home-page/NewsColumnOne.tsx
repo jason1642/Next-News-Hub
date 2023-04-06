@@ -24,7 +24,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
 
  
             {/* Title */}
-            <h1 className="text-center text-4xl hover:cursor-pointer hover:text-blue-500">{newsData[0].title}</h1>
+            <h1 className="text-center w-10/12 text-4xl hover:cursor-pointer hover:text-blue-500">{newsData[0].title}</h1>
 
             <Image 
             className="h-auto w-11/12"
@@ -35,7 +35,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
              />
 
             {/* Description for main story */}
-      <p className="text-xl text-center px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
+      <p className="text-xl text-left px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
         </div>
         <div className='border-b border-slate-400 border-solid p-2 w-11/12 self-center' />
 

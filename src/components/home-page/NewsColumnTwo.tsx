@@ -46,7 +46,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
             </div>
 
             
-            <h2 onClick={() => window.open(newsData[0].url, "_blank")} className="align-center text-center text-lg my-2.5 pb-2.5 border-b font-bold">{newsData[1].title}</h2>
+            <h2 onClick={() => window.open(newsData[0].url, "_blank")} className="align-center w-11/12 text-left text-lg my-2.5 pb-2.5 border-b font-bold">{newsData[1].title}</h2>
             {/* <br /> */}
 
                 {/* Links List */}
@@ -58,7 +58,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
 
 
                 {/* Image Container */}
-            <div className="mt-2.5 flex relative items-center w-11/12 flex-col hover:cursor-pointer">
+            <div className="mt-2 flex relative items-center w-11/12 flex-col hover:cursor-pointer">
                 {newsData[2].multimedia[0].url !== null ?
                     <img 
                         alt='' 
@@ -69,7 +69,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
                         : <></>}
                 
             </div>
-                <h2 onClick={() => window.open(newsData[2].url, "_blank")} className="align-center text-center text-lg my-2.5 pb-2.5 border-b font-bold">{newsData[2].title}</h2>
+                <h2 onClick={() => window.open(newsData[2].url, "_blank")} className="align-center text-left w-11/12 text-lg my-2 pb-2.5 border-b font-bold">{newsData[2].title}</h2>
 
         {/* Links List */}
         <ul className="mb-5  w-11/12 ">

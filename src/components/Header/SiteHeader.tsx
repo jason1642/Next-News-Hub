@@ -14,11 +14,11 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
  <Link
   className='flex ml-5 h-full items-center justify-center'
    href="/">
-      <img
+      {/* <img
         
         alt='logo'
         className="h-5/6"
-        src="https://cdn3.iconfinder.com/data/icons/abstract-tree-wood-forest-ecology-landscape-eco-gr/1470/green_eco_leaves_circle_logo_eco_recycle-512.png" />
+        src="https://cdn3.iconfinder.com/data/icons/abstract-tree-wood-forest-ecology-landscape-eco-gr/1470/green_eco_leaves_circle_logo_eco_recycle-512.png" /> */}
       <div className='text-2xl'>Next News Hub</div>
       </Link>
 
