@@ -5,7 +5,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
 
 
     return (
-        <div className="flex flex-column flex-col align-middle max-w-screen-sm">
+        <div className="flex flex-column flex-col align-middle justify-center max-w-screen-sm">
 
 
 
@@ -18,8 +18,8 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
         <div
          onClick={()=>window.open(newsData[0].url, '_blank')}
          className="
-         w-full flex-col flex  align-middle
-          border-b border-slate-400 border-solid p-2
+         w-full flex-col flex  items-center 
+          
           "
          >
 
@@ -36,13 +36,13 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
              />
 
             {/* Description for main story */}
-      <p className="text-2xl text-left px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
+      <p className="text-2xl text-center px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
         </div>
-
+        <div className='border-b border-slate-400 border-solid p-2 w-11/12 self-center' />
 
 
         {/* col-one-link-section  */}
-        <div className="flex flex-col align-middle w-11/12">
+        <div className="flex self-center flex-col align-middle w-11/12">
             {newsData.map((ele:any) => {
                     if(ele.subsection !== ''){    
                     let tempSubSec = ele.subsection.split("");
