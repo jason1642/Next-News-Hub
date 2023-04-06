@@ -24,9 +24,10 @@ const [newsData, setNewsData] = useState<Array<any>>()
     console.log(process.env.NEXT_PUBLIC_NYTIMES_API_KEY)
     getNewsData()
   },[])
+  
   return (
     <main className='flex py-4 px-12 content-middle text-black'>
-      {newsData &&<>
+      {newsData && <>
       <NewsColumnOne newsData={newsData}/>
       <NewsColumnTwo newsData={newsData}/>
       </>
