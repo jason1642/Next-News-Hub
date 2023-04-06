@@ -52,7 +52,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
                 {/* Links List */}
                 <ul className="mb-5  w-11/12 ">
                 {
-                newsData.slice(5, 8).map((ele:any) =>     
+                newsData.slice(6, 9).map((ele:any) =>     
                     <li key={ele.uri} className="pb-2.5 border-b" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
                 </ul>
 
@@ -74,7 +74,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
         {/* Links List */}
         <ul className="mb-5  w-11/12 ">
                 {
-                newsData.slice(8, 11).map((ele:any) =>     
+                newsData.slice(10, 13).map((ele:any) =>     
                     <li key={ele.uri} className="pb-2.5 border-b" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
                 </ul>
 

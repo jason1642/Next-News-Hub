@@ -26,6 +26,7 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
               <TextField
                 className='bg-white p-0'
                 // id="outlined-basic" 
+                sx={{padding: 0, borderRadius: '7px'}}
                 margin='none'
                 label="Search" 
                 size='small'
@@ -33,8 +34,8 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
                  />
       <button 
         className='
-        rounded-md
-          px-4 py-0 text-lg  bg-blue-500
+        rounded-sm
+          px-3 py-0 text-lg  bg-blue-500
          '
       >Search</button>
     

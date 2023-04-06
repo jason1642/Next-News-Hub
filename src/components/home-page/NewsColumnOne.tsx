@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import _ from 'lodash'
 const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => {
    
 
@@ -35,18 +35,16 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
              />
 
             {/* Description for main story */}
-      <p className="text-2xl text-center px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
+      <p className="text-xl text-center px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
         </div>
         <div className='border-b border-slate-400 border-solid p-2 w-11/12 self-center' />
 
 
         {/* col-one-link-section  */}
         <div className="flex self-center flex-col align-middle w-11/12">
-            {newsData.map((ele:any) => {
-                    if(ele.subsection !== ''){    
-                    let tempSubSec = ele.subsection.split("");
-                    tempSubSec[0] = tempSubSec[0].toUpperCase();
-                    tempSubSec.join("")      
+            {newsData.slice(1, 6).map((ele:any) => {
+                      
+                         
                     return (
                       <p 
                       key={ele.uri} 
@@ -55,9 +53,9 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
                         border-b border-slate-300 border-solid
                         hover:cursor-pointer hover:text-blue-500
                         text-left text-base pt-2 pb-2
-                        "><b>{tempSubSec}: </b>{ele.title}</p>)
-                    }
-                }).slice(0, 5)}
+                        "><b>{_.startCase(ele.subsection || (ele.section === 'us' ? 'US' : ele.section))}: </b>{ele.title}</p>)
+                    
+                })}
         
         </div>
       

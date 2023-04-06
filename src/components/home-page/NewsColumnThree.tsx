@@ -31,6 +31,7 @@ const NewsColumnThree: React.FunctionComponent<{newsData: any}> = ({newsData}) =
          
          { newsData.slice(10,24).map((ele:any) => 
       <div 
+      key={ele.url}
         onClick={() => window.open(ele.url, "_blank")}
         className="w-full pb-1 my-1 border-b  hover:cursor-pointer hover:text-blue-500"
         >{ele.title}</div>
