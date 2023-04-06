@@ -11,31 +11,36 @@ const NewsColumnThree: React.FunctionComponent<{newsData: any}> = ({newsData}) =
 
   // newsData.then(e => console.log(e))
   return (
-    <div className="w-11/12 max-w-xs flex flex-col items-center ">
+    <div className="flex flex-col max-w-xs items-center w-96 ">
             {/* First Image Story */}
-          <div className="w-full mt-2.5  hover:cursor-pointer">
+          <div className="w-11/12 mt-2.5 relative flex-col flex hover:cursor-pointer">
             {newsData[3].multimedia[0].url !== null &&
               <img 
                 alt=''
                 onClick={() => window.open(newsData[3].url, "_blank")}
-                className="w-full mb-1"
+                className="relative mb-1 w-full"
                 src={newsData[3].multimedia[0].url}
                  />
               }
           </div>
 
 
-          <h2 onClick={() => window.open(newsData[3].url, "_blank")} className="text-left text-lg border-b font-bold">{newsData[3].title}</h2>
+          <h2
+           onClick={() => window.open(newsData[3].url, "_blank")}
+           className="text-left text-lg border-b font-bold mb-1 w-11/12">
+                {newsData[3].title}</h2>
          
          
-         
-         { newsData.slice(10,24).map((ele:any) => 
-      <div 
+         <ul className='mb-3 w-11/12'>
+              { newsData.slice(10,20).map((ele:any) => 
+      <li 
       key={ele.url}
         onClick={() => window.open(ele.url, "_blank")}
         className="w-full pb-1 my-1 border-b  hover:cursor-pointer hover:text-blue-500"
-        >{ele.title}</div>
+        >{ele.title}</li>
     )}
+         </ul>
+       
   
     </div>
 

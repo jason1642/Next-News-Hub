@@ -5,7 +5,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
 
 
     return (
-        <div className="flex flex-column flex-col align-middle max-w-screen-sm">
+        <div className="flex flex-column flex-col align-middle max-w-lg">
 
 
 
@@ -17,10 +17,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
         {/* Main News(Single) Container */}
         <div
          onClick={()=>window.open(newsData[0].url, '_blank')}
-         className="
-         w-full flex-col flex  items-center 
-          "
-         >
+         className="w-full flex-col flex  items-center">
 
  
             {/* Title */}
@@ -35,14 +32,14 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
              />
 
             {/* Description for main story */}
-      <p className="text-xl text-left px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
+      <p className="mt-1 text-xl text-left px-5 hover:cursor-pointer font-medium  hover:text-blue-500">{newsData[0].abstract}</p>
         </div>
         <div className='border-b border-slate-400 border-solid p-2 w-11/12 self-center' />
 
 
         {/* col-one-link-section  */}
         <div className="flex self-center flex-col align-middle w-11/12">
-            {newsData.slice(1, 6).map((ele:any) => {
+            {newsData.slice(1, 7).map((ele:any) => {
                       
                          
                     return (
@@ -52,7 +49,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
                        className="
                         border-b border-slate-300 border-solid
                         hover:cursor-pointer hover:text-blue-500
-                        text-left text-base pt-2 pb-2
+                        text-left text-base py-1
                         "><b>{_.startCase(ele.subsection || (ele.section === 'us' ? 'US' : ele.section))}: </b>{ele.title}</p>)
                     
                 })}

@@ -25,7 +25,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
   },[])
   
   return (
-    <main className='flex py-4 px-12 content-middle text-black'>
+    <main className='flex py-4 px-12 mx-auto max-w-7xl content-middle text-black'>
       {newsData && <>
       <NewsColumnOne newsData={newsData}/>
       <NewsColumnTwo newsData={newsData}/>
