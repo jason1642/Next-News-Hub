@@ -16,7 +16,7 @@ export default function RootLayout({
 <head>
 {/* <link href="/dist/output.css" rel="stylesheet"/> */}
 </head>
-      <body className='bg-white h-full'>
+      <body className='bg-white h-'>
         <Header />
         {children}
         </body>
