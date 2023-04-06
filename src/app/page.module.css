@@ -4,12 +4,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
+  color: black;
   /* min-height: 100vh; */
 }
 
 .description {
   display: inherit;
-  justify-content: inherit;
+  justify-content: inherit; 
   align-items: inherit;
   font-size: 0.85rem;
   max-width: var(--max-width);
