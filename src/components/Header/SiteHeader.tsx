@@ -6,7 +6,6 @@ import Link from 'next/link';
 import './SiteHeader.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { StyledComponent } from 'styled-components';
 
 interface ISiteHeaderProps {
 }
@@ -15,9 +14,10 @@ const LinkContainer = styled(Link)`
   display: flex;
   height: inherit;
   align-items: center;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* width: 100%; */
   justify-self: flex-start;
+  margin-left: 20px;
 `
 
 const Title = styled.div`
@@ -31,16 +31,23 @@ const Container = styled.header`
 
 const SearchBox = styled.div`
   display:flex;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  margin: 0 auto;
+  border-radius: 14px;
+  gap: .5rem;
+  border-width: 0;
+  position: absolute;
+
+  /* background-color: #ffffff; */
   justify-content: center;
 `;
 
-let FillerDiv: React.FunctionComponent = ()=> <div>wewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwewewqewqewqewvqweqwe</div>
+
 
 
 const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
   return (
-    <Container>
+    <Container className='gap-8'>
  <LinkContainer href="/">
       <Image
         
@@ -53,19 +60,26 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
       </LinkContainer>
 
       <SearchBox>
-              <TextField id="outlined-basic" label="Search" variant="outlined" />
+              <TextField
+                // id="outlined-basic" 
+                label="Search" 
+                variant="outlined"
+                 />
 
       {/* <input className="search-box" type="text" placeholder="Search" /> */}
       {/* <Button className="search-button">I&apos;m feeling lucky!</Button> */}
-      <Button 
-        size='medium'
-        variant='contained'
-      >Search</Button>
+      <button 
+        className='
+          border border-blue-500 rounded-md
+          px-4 text-lg bg-blue-500
+         '
+      >Search</button>
+    
       </SearchBox>
 
-        <FillerDiv/>
-     
-
+    <div
+     className='h-0 grow bg-green'
+    />
         
     </Container>
   );
