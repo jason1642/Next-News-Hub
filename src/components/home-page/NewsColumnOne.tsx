@@ -5,7 +5,7 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
 
 
     return (
-        <div className="flex flex-column flex-col align-middle justify-center max-w-screen-sm">
+        <div className="flex flex-column flex-col align-middle max-w-screen-sm">
 
 
 
@@ -19,7 +19,6 @@ const NewsColumnOne: React.FunctionComponent<{newsData: any}> = ({newsData}) => 
          onClick={()=>window.open(newsData[0].url, '_blank')}
          className="
          w-full flex-col flex  items-center 
-          
           "
          >
 

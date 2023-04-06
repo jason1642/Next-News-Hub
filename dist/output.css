@@ -543,6 +543,11 @@ video {
   margin-bottom: 0.625rem;
 }
 
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -573,6 +578,14 @@ video {
 
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mr-auto {
+  margin-right: auto;
 }
 
 .block {

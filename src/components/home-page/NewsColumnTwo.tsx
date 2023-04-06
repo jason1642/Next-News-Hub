@@ -35,7 +35,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
         {/* Image Container */}
         <div
             onClick={() => window.open(newsData[0].url, "_blank")}
-            className="mt-2.5 relative h-full flex items-center w-11/12 flex-col border hover:cursor-pointer"
+            className="mt-2.5 relative flex items-center w-11/12 flex-col hover:cursor-pointer"
                 >
                 <img
                 alt=''
@@ -58,7 +58,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
 
 
                 {/* Image Container */}
-            <div className="mt-2.5 flex relative h-full items-center w-11/12 flex-col border hover:cursor-pointer">
+            <div className="mt-2.5 flex relative items-center w-11/12 flex-col hover:cursor-pointer">
                 {newsData[2].multimedia[0].url !== null ?
                     <img 
                         alt='' 
