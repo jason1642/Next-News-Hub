@@ -14,6 +14,12 @@ const nextConfig = {
         port: '',
         pathname: '/data/icons/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'static01.nyt.com',
+        port: '',
+        pathname: '/images/**',
+      },
     ],
   },
   swcMinify: true,
