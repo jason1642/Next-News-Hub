@@ -15,5 +15,6 @@ export const GET = async(req: NextApiRequest, res: NextApiResponse) =>{
   return new Response(JSON.stringify({
     // data: data ? data : [],
     // error: error ?? ""
+    message: 'Successfully made a get request in Nextjs'
 }), { status: 200 })
 }

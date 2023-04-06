@@ -4,13 +4,15 @@ import NewsColumnOne from '@/components/home-page/NewsColumnOne'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 // import handler, { GET } from './api/hello/route'
-
+import axios from 'axios'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
+const getData = async()=> {
+  await axios.get('/api/users').then(res=>console.log(res.data))
+}
   useEffect(()=>{ 
-    fetch('/api/hello').then(res => console.log());
+    getData()
   },[])
   return (
     <main className={styles.main}>
@@ -18,3 +20,4 @@ export default function Home() {
     </main>
   )
 }
+ 
