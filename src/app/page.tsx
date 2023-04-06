@@ -8,11 +8,19 @@ import axios from 'axios'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-const getData = async()=> {
-  await axios.get('/api/users').then(res=>console.log(res.data))
+const getNewsData = async()=> {
+  // await axios.get('/api/users').then(res=>console.log(res.data))
+  const response = await axios(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+setMainNewsApi(response.data)
+  console.log(response)
+  // return response
 }
+const [mainNewsApi, setMainNewsApi] = useState()
+
+
   useEffect(()=>{ 
-    getData()
+    // getData()
+    getNewsData()
   },[])
   return (
     <main className={styles.main}>
