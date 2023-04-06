@@ -1,54 +1,20 @@
 'use client'
 import * as React from 'react';
-import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import './SiteHeader.css'
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 interface ISiteHeaderProps {
 }
 
-const LinkContainer = styled(Link)`
-  display: flex;
-  height: inherit;
-  align-items: center;
-  /* border: 1px solid white; */
-  /* width: 100%; */
-  justify-self: flex-start;
-  margin-left: 20px;
-`
-
-const Title = styled.div`
-  font-size: 2.1em;
-  font-weight: lighter;
-`;
-const Container = styled.header`
-  display: flex;
-  /* justify-content: space-around; */
-`;
-
-const SearchBox = styled.div`
-  display:flex;
-  /* border: 1px solid white; */
-  margin: 0 auto;
-  border-radius: 14px;
-  gap: .5rem;
-  border-width: 0;
-  position: absolute;
-
-  /* background-color: #ffffff; */
-  justify-content: center;
-`;
-
-
-
 
 const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
   return (
-    <Container className='gap-8'>
- <LinkContainer href="/">
+    <header className='flex flex-row'>
+ <Link
+  className='flex ml-5 h-full items-center justify-center'
+   href="/">
       <Image
         
         alt='logo'
@@ -57,9 +23,9 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
         // className="header-img"
         src="https://cdn3.iconfinder.com/data/icons/abstract-tree-wood-forest-ecology-landscape-eco-gr/1470/green_eco_leaves_circle_logo_eco_recycle-512.png" />
       <div className='font-bold text-3xl'>Next News Hub</div>
-      </LinkContainer>
+      </Link>
 
-      <SearchBox>
+      <div className='flex mx-auto gap-1 absolute justify-center align-middle'>
               <TextField
                 // id="outlined-basic" 
                 label="Search" 
@@ -75,13 +41,13 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
          '
       >Search</button>
     
-      </SearchBox>
+      </div>
 
     <div
      className='h-0 grow bg-green'
     />
         
-    </Container>
+    </header>
   );
 };
 
