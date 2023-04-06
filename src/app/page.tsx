@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 // import styles from './page.module.css'
 // import handler, { GET } from './api/hello/route'
 import axios from 'axios'
+import NewsColumnTwo from '@/components/home-page/NewsColumnTwo'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -25,8 +26,10 @@ const [newsData, setNewsData] = useState<Array<any>>()
   },[])
   return (
     <main className='flex py-4 px-12 content-middle text-black'>
-      {newsData &&
+      {newsData &&<>
       <NewsColumnOne newsData={newsData}/>
+      <NewsColumnTwo newsData={newsData}/>
+      </>
     }
     </main>
   )

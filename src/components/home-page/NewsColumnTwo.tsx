@@ -1,8 +1,7 @@
 import React, { Component } from "react"
-import "./NewsColumnTwo.css"
+// import "./NewsColumnTwo.css"
 import axios from "axios"
-
-
+import Image from 'next/image'
 
 const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
 
@@ -34,33 +33,63 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
 
   const renderFunc = () => {
 
-    console.log(this.state.list)
+    console.log(newsData[1].multimedia[1].width, newsData[1].multimedia[1].height)
     return (<>
-      <div onClick={() => window.open(props.newsArr[0].url, "_blank")} className="col-two-img-div">
-        <img alt='' className="column-two-img" src={this.props.newsArr[1].multimedia[0].url} />
-        <div className="on-img-label">Just In</div>
+
+    
+    {/* Image Div */}
+      <div
+       onClick={() => window.open(newsData[0].url, "_blank")}
+       className="mt-2.5 relative h-full flex items-center w-11/12 flex-col border hover:cursor-pointer"
+    //    style={{width: newsData[1].multimedia[2].width, height: newsData[1].multimedia[2].height}} 
+        >
+        <Image
+         alt=''
+        //  sizes="100vw"
+         fill
+        //  width={newsData[1].multimedia[2].width}
+        //  height={newsData[1].multimedia[2].height}
+         className="relative w-full" 
+        //  style={{position: 'relative'}}
+         src={newsData[1].multimedia[0].url} />
+
+
+        {/* Absolute position Image label */}
+        <div className="absolute bottom-0 bg-blue-950 text-white p-2.5 inline-block self-start justify-self-start font-bold">Just In</div>
       </div>
-      <h2 onClick={() => window.open(props.newsArr[0].url, "_blank")} className="col-two-main-title">{props.newsArr[1].title}</h2>
+
+      
+      <h2 onClick={() => window.open(newsData[0].url, "_blank")} className="align-center text-center text-lg my-2.5 pb-2.5 border-b font-bold">{newsData[1].title}</h2>
       <br />
-      <div className="col-two-ul">
+
+
+      {/* <div className="col-two-ul">
         <ul>
-          {state.list.slice(0, 3)}
-        </ul></div>
+          {list.slice(0, 3)}
+        </ul></div> */}
       <div className="col-two-story-two">
-        {props.newsArr[2].multimedia[0].url !== null ? <img alt='' onClick={() => window.open(props.newsArr[2].url, "_blank")} className="col-two-img-two" src={props.newsArr[2].multimedia[0].url} /> : <></>}
-        <h2 onClick={() => window.open(props.newsArr[2].url, "_blank")} className="col-two-main-title">{props.newsArr[2].title}</h2>
-        <div className="col-two-ul2">
+        {newsData[2].multimedia[0].url !== null ? <img alt='' onClick={() => window.open(newsData[2].url, "_blank")} className="col-two-img-two" src={newsData[2].multimedia[0].url} /> : <></>}
+        <h2 onClick={() => window.open(newsData[2].url, "_blank")} className="col-two-main-title">{newsData[2].title}</h2>
+        {/* <div className="col-two-ul2">
           <ul>
-            {this.state.list.slice(3, 8)}
-          </ul></div>
+            {list.slice(3, 8)}
+          </ul></div> */}
       </div>
     </>
     )
   }
 
     return (
-      <div className="news-column-two">
-        {this.props.newsArr[1] ? renderFunc() : <> </>}
+      <div className="flex flex-col max-w-xs items-center">
+
+
+
+        {newsData[1] ? renderFunc() : <> </>}
+
+
+
+
+
       </div>
     )
   
