@@ -23,7 +23,6 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
     },[])
 
 
-
   
 
 
@@ -48,15 +47,15 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
             {/* First Story Title */}
             <h2 
                 onClick={() => window.open(newsData[0].url, "_blank")} 
-                className=" leading-tight align-center w-11/12 text-left text-lg my-2.5 pb-2.5 border-b font-bold"
+                className=" leading-tight align-center w-11/12 text-left text-lg my-2.5 pb-2.5 border-b font-bold hover:cursor-pointer hover:text-blue-500"
                 >{newsData[1].title}</h2>
-         
+          
 
                 {/* Links List */}
                 <ul className="mb-5  w-11/12 ">
                 {
                 newsData.slice(7, 10).map((ele:any) =>     
-                    <li key={ele.uri} className="pb-2.5 border-b" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
+                    <li key={ele.uri} className="pb-2.5 border-b hover:cursor-pointer" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
                 </ul>
 
 
@@ -72,13 +71,13 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
                         : <></>}
                 
             </div>
-                <h2 onClick={() => window.open(newsData[2].url, "_blank")} className="align-center text-left w-11/12 text-lg my-2 pb-2.5 border-b font-bold">{newsData[2].title}</h2>
+                <h2 onClick={() => window.open(newsData[2].url, "_blank")} className="align-center text-left w-11/12 text-lg my-2 pb-2.5 border-b font-bold hover:cursor-pointer hover:text-blue-500">{newsData[2].title}</h2>
 
         {/* Links List */}
         <ul className="mb-5  w-11/12 ">
                 {
                 newsData.slice(11, 14).map((ele:any) =>     
-                    <li key={ele.uri} className="pb-2.5 border-b" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
+                    <li key={ele.uri} className="pb-2.5 border-b hover:cursor-pointer hover:text-blue-500" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
                 </ul>
 
 

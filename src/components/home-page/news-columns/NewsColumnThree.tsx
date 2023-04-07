@@ -27,7 +27,7 @@ const NewsColumnThree: React.FunctionComponent<{newsData: any}> = ({newsData}) =
 
           <h2
            onClick={() => window.open(newsData[3].url, "_blank")}
-           className="text-left text-lg border-b font-bold mb-1 w-11/12">
+           className="text-left text-lg border-b font-bold mb-1 w-11/12 hover:cursor-pointer hover:text-blue-500">
                 {newsData[3].title}</h2>
          
          
