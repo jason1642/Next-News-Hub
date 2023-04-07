@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Header from './WeatherDashboardHeader';
 import { getVisualCrossingWeatherApiData } from '@/api-helpers/weather-api-requests'
+import BasicDataPanel from './BasicDataPanel';
+import WeatherDashboard from './WeatherDashboard';
 
 interface IWeatherDashboardContainerProps {
 }
@@ -19,13 +20,13 @@ const WeatherDashboardContainer: React.FunctionComponent<IWeatherDashboardContai
           })  
     },[])
     return (
-    <div className='flex flex-col border w-full'>
-        {weatherData && location &&
-            <Header location={location} weatherData={weatherData}/>
+    <div className='flex border w-full p-2 '>
+        {weatherData && location &&<>
+            <BasicDataPanel location={location} weatherData={weatherData}/>
+            <WeatherDashboard />
+            </>
         }
-        Container
-        {/* Weather line graph */}
-        {/* Table of hourly weather information, sectioned by days */}
+
     </div>
   );
 };
