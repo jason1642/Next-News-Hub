@@ -7,6 +7,7 @@ import NewsColumnThree from '@/components/home-page/news-columns/NewsColumnThree
 import axios from 'axios'
 import { getVisualCrossingWeatherApiData } from '@/api-helpers/weather-api-requests'
 // const inter = Inter({ subsets: ['latin'] })
+import WeatherDashboardHeader from '../components/weather-section/WeatherDashboardHeader'
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
 
 
 const [newsData, setNewsData] = useState<Array<any>>()
-
+const [weatherData, setWeatherData] = useState<any>()
 
   useEffect(()=>{  
     // getData()
@@ -32,19 +33,21 @@ const [newsData, setNewsData] = useState<Array<any>>()
       }).catch((err: any)=> {
         console.log(err)
       })
-    console.log(process.env.NEXT_PUBLIC_NYTIMES_API_KEY)
     // getNewsData()
   },[])
   
   return (
     <main className='flex mt-5 flex-col mx-auto content-middle text-black'>
-      {newsData && <section className='flex max-w-7xl mx-auto content-middle text-black'>
-      <NewsColumnOne newsData={newsData}/>
-      <NewsColumnTwo newsData={newsData}/>
-      <NewsColumnThree newsData={newsData}/>
-      </section>
-    }
+      {newsData && 
+        <section className='flex max-w-7xl mx-auto content-middle text-black'>
+          <NewsColumnOne newsData={newsData}/>
+          <NewsColumnTwo newsData={newsData}/>
+          <NewsColumnThree newsData={newsData}/>
+        </section>
+      }
   <section className=''>
+    {/* Weather line graph */}
+    {/* Table of hourly weather information, sectioned by days */}
     Weather Dashboard
   </section>
 

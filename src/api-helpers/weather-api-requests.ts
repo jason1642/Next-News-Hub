@@ -9,6 +9,10 @@ const api = axios.create(
             contentType: 'json',
             unitGroup: 'us',
             shortColumnNames: 'false'
+        },
+        headers: {
+            'X-RapidAPI-Key': process.env.NEXT_PUBLIC_VISUALCROSSINGWEATHER_API_KEY,
+    'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
         }
         
     }
