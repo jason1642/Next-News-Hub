@@ -1,14 +1,11 @@
 'use client'
 import {useEffect, useState} from 'react'
-import { Inter } from 'next/font/google'
 import NewsColumnOne from '@/components/home-page/news-columns/NewsColumnOne'
 import NewsColumnTwo from '@/components/home-page/news-columns/NewsColumnTwo'
 import NewsColumnThree from '@/components/home-page/news-columns/NewsColumnThree'
 import axios from 'axios'
-import { getVisualCrossingWeatherApiData } from '@/api-helpers/weather-api-requests'
 // const inter = Inter({ subsets: ['latin'] })
-import WeatherDashboardHeader from '../components/weather-section/WeatherDashboardHeader'
-
+import WeatherDashboard from '../components/weather-section/Container'
 
 export default function Home() {
 
@@ -24,15 +21,10 @@ export default function Home() {
 
 
 const [newsData, setNewsData] = useState<Array<any>>()
-const [weatherData, setWeatherData] = useState<any>()
 
   useEffect(()=>{  
     // getData()
-      getVisualCrossingWeatherApiData().then((res: any)=> {
-        console.log(res)
-      }).catch((err: any)=> {
-        console.log(err)
-      })
+      
     // getNewsData()
   },[])
   
@@ -45,10 +37,10 @@ const [weatherData, setWeatherData] = useState<any>()
           <NewsColumnThree newsData={newsData}/>
         </section>
       }
-  <section className=''>
+  <section className='flex max-w-7xl mx-auto content-middle text-black'>
     {/* Weather line graph */}
     {/* Table of hourly weather information, sectioned by days */}
-    Weather Dashboard
+    <WeatherDashboard /> 
   </section>
 
     

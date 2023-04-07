@@ -1,31 +1,7 @@
-import React, { Component } from "react"
-// import "./NewsColumnTwo.css"
-import axios from "axios"
-import Image from 'next/image'
+import React from "react"
+
 
 const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
-
-
-
-//     const fetchData = async ()=> {
-//              const API_KEY_TWO = "cce7827002dc4aacac0aa05b70ad0f33"
-//     const responseTwo = await axios(`https://newsapi.org/v2/top-headlines?q=world&apiKey=${API_KEY_TWO}`)
-//      setList( responseTwo.data.articles.map((ele:any) => <li key={ele.uri} className="col-two-li" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)
-//     )
-//        console.log(responseTwo)
-// }
-
-    React.useEffect(()=>{
-
-    
-         
-   
-    },[])
-
-
-  
-
-
 
     return (
       <div className="flex flex-col max-w-xs items-center w-96">
