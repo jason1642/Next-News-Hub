@@ -37,7 +37,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
           <NewsColumnThree newsData={newsData}/>
         </section>
       }
-  <section className='flex max-w-7xl mx-auto content-middle text-black'>
+  <section className='flex max-w-7xl mx-auto content-middle text-black '>
     {/* Weather line graph */}
     {/* Table of hourly weather information, sectioned by days */}
     <WeatherDashboard /> 

@@ -20,7 +20,7 @@ const WeatherDashboardContainer: React.FunctionComponent<IWeatherDashboardContai
           })  
     },[])
     return (
-    <div className='flex border w-full p-2 '>
+    <div className='flex border w-full bg-blue-400 rounded-xl'>
         {weatherData && location &&<>
             <BasicDataPanel location={location} weatherData={weatherData}/>
             <WeatherDashboard />
