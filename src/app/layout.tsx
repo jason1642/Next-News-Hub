@@ -18,7 +18,7 @@ export default function RootLayout({
 <head>
 {/* <link href="/dist/output.css" rel="stylesheet"/> */}
 </head>
-      <body className='bg-black h-'>
+      <body className='bg-grey h-'>
       {/* <ReactRain numDrops='50'/> */}
 
         <Header />
