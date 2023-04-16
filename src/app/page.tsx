@@ -4,7 +4,6 @@ import NewsColumnOne from '@/components/home-page/news-columns/NewsColumnOne'
 import NewsColumnTwo from '@/components/home-page/news-columns/NewsColumnTwo'
 import NewsColumnThree from '@/components/home-page/news-columns/NewsColumnThree'
 import axios from 'axios' 
-import {Rain} from 'react-rainfall'
 // const inter = Inter({ subsets: ['latin'] })
 import WeatherDashboard from '../components/weather-section/Container'
 
@@ -39,10 +38,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
     className='flex mt-5 flex-col relative mx-auto content-middle text-black'>
       
       {/* {<Rain/>} */}
-  <Rain  
-   rainEffect='rainbow'
-   size='long'
-  /> 
+
  
       {newsData && 
         <section className='flex max-w-7xl mx-auto content-middle text-black'>

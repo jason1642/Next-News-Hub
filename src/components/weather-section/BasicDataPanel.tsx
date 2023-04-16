@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+import { Rain } from 'react-rainfall';
+import _ from 'lodash'
 
 interface IBasicDataPanelProps {
     weatherData: any;
@@ -12,27 +13,45 @@ const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherD
           [location]:{ 
             address,
             currentConditions:{
-              datetime, temp
+              datetime, temp, icon
             }
           }
         }
       } = weatherData;  
       console.log(weatherData)
       return (
-        <div className='rounded-xl basis-1/3 p-4 font-light text-white bg-blue-400'>
+        <div
+          style={
+            {
+              backgroundImage: 'linear-gradient(#85adde, #3c96fd)',
+              // backgroundColor: '#5c9ce7'
+              
+            }
+          }
+        className='rounded-xl basis-1/3  p-4 font-light text-white'>
+          <Rain
+          dropletOpacity={1}
+            dropletColor='rgb(0, 0, 0)'
+          />
            {/* Location + sunrise */}
-            {/* <div className='flex justify-between'>
-                <span className='text-md'>{address.split(',')[0]}</span>
-                <span className='text-sm'>7:19 am</span>
+            <div className='flex justify-between'>
+                <span className='text-sm'>{address.split(',')[0]}</span>
+                <span className='text-xs'>7:19 am</span>
                 </div>
 
         <div className='flex text-sm justify-between'>
-            <span className='text-md font-extralight'>Today {Intl.DateTimeFormat('en', { hour: "numeric", minute: "numeric", hour12: true }).format(new Date(datetime))} EST</span>
-            <span className='text-xsm'>8:06 pm</span>
-       </div> */}
-            <h3 className='font-extralight text-4xl text-center'>{address.split(',')[0]}</h3>
-            <p className='font-extralight text-6xl text-center'>{Math.round(temp)}&deg;</p>
+            <span className='text-xs font-extralight'>Today {Intl.DateTimeFormat('en', { hour: "numeric", minute: "numeric", hour12: true }).format(new Date(datetime))} EST</span>
+            <span className='text-xs'>8:06 pm</span>
+       </div>
 
+
+
+          <div className='mt-6'>
+                   <h3 className='font-extralight text-4xl text-center'>{address.split(',')[0]}</h3>
+            <p className='font-extralight text-7xl text-center'>{Math.round(temp)}&deg;</p>
+            <p className={'text-center font-extralight text-xl'}>{_.capitalize(icon)}</p>
+          </div>
+     
             {/* <canvas id="canvas" style={{position : 'absolute', top: '0px', left : '0px'}}></canvas>
 <script type="text/javascript" src="http://sheepeuh.com/rain/dat.gui.js"></script>
 <div style={{position : 'absolute', bottom : '0px', left : '0px', margin : '20px', padding : '5px', backgroundColor:'#ce3635'}}>
