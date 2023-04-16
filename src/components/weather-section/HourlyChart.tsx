@@ -29,11 +29,15 @@ const options: ApexOptions = {
         },
     },
     xaxis: {
+        position: 'top',
         // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
         labels:{
             style: {
                 colors:'black'
-            }
+            },
+            hideOverlappingLabels: true,
+            rotate: 0,
+            showDuplicates: false,
         }
     },
     yaxis: {
@@ -91,12 +95,40 @@ const options: ApexOptions = {
         hover: {
           size: undefined,
           sizeOffset: 2
-        }
-   
+        },
+        
+    },
 
+    grid: {
+        // show: true,
+        borderColor: '#bababa3b',
+        // strokeDashArray: 0,
+        position: 'back',
+        // xaxis: {
+        //     lines: {
+        //         show: true
+        //     }
+        // },   
+        yaxis: {
+            lines: {
+                show: false
+            }
+        },  
+        // row: {
+        //     colors: undefined,
+        //     opacity: 0.5
+        // },  
+        column: {
+            colors: undefined,
+            opacity: 0.5
+        },  
+        // padding: {
+        //     top: 0,
+        //     right: 0,
+        //     bottom: 0,
+        //     left: 0
+        // },  
     }
-
-
 
 
 
@@ -109,8 +141,9 @@ const options: ApexOptions = {
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
     const hourlyWeatherData = React.useMemo(()=>{
+        console.log(weatherData?.values[0].datetimeStr.split('-04:00')[0])
         const seriesTemp = weatherData?.values.map((item: any)=> item.temp) 
-        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: 'numeric', }).format(itemx.dateTimeStr))
+        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: '2-digit', }).format(itemx.datetime))
         return ({
             categories: dateCategories,
             series: [{
@@ -131,6 +164,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                 ...options,
                  series: hourlyWeatherData.series,
                 xaxis: {
+                    ...options.xaxis,
                     categories: hourlyWeatherData.categories
                 }
             }}
