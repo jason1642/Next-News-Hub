@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
 
 
@@ -7,9 +7,12 @@ interface IHourlyChartProps {
     weatherData: any;
     
 }
-const options = {
-    options: {
+const options: ApexOptions = {
+    
     chart: {
+        toolbar: {
+          show: false  
+        },
         id: "hourly-weather-data-area-chart",
         animations: {
             enabled: true,
@@ -25,16 +28,28 @@ const options = {
             }
         },
     },
-    // xaxis: {
-    //     categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-
-    // }
-    
+    xaxis: {
+        // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        labels:{
+            style: {
+                colors:'black'
+            }
+        }
+    },
+    yaxis: {
+        labels:{
+            style:{
+                colors: 'black',
+            },
+            
+        },
+        decimalsInFloat: 0
+    },
     
     
        tooltip: {
         followCursor: true,
-        theme: 'dark',
+        // theme: 'dark',
     
     
     },
@@ -47,18 +62,18 @@ const options = {
         dashArray: 0,      
     },
     theme: {
-        mode: 'dark', 
-        palette: 'palette1', 
-        monochrome: {
-            enabled: false,
-            color: '#255aee',
-            shadeTo: 'dark',
-            shadeIntensity: 0.65
-        },
+        // mode: 'dark', 
+        // palette: 'palette1', 
+        // monochrome: {
+        //     enabled: false,
+        //     color: '#255aee',
+        //     shadeTo: 'dark',
+        //     shadeIntensity: 0.65
+        // },
     },
     
        markers: {
-        size: 3,
+        size: 1,
         colors: ['#255aee', '#26cb8a'],
         // strokeColors: '#000000',
         strokeWidth: 0,
@@ -77,7 +92,7 @@ const options = {
           size: undefined,
           sizeOffset: 2
         }
-    }
+   
 
     }
 
@@ -94,11 +109,14 @@ const options = {
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
     const hourlyWeatherData = React.useMemo(()=>{
-        const hourlyValues = weatherData?.values.map((item: any)=> item.temp) 
-        return ([{
+        const seriesTemp = weatherData?.values.map((item: any)=> item.temp) 
+        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: 'numeric', }).format(itemx.dateTimeStr))
+        return ({
+            categories: dateCategories,
+            series: [{
             name: 'Temperature',
-            data: hourlyValues
-        }])
+            data: seriesTemp
+        }]})
         },[weatherData])
 
   React.useEffect(() => {
@@ -108,9 +126,16 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
   return (
     <div>
         <Chart
-            options={{...options, series: hourlyWeatherData}}
+        style={{color: 'black'}}
+            options={{
+                ...options,
+                 series: hourlyWeatherData.series,
+                xaxis: {
+                    categories: hourlyWeatherData.categories
+                }
+            }}
 
-            series={hourlyWeatherData}
+            series={hourlyWeatherData.series}
             type="area"
             width="500"
         />

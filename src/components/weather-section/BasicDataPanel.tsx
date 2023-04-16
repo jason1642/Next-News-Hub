@@ -10,7 +10,7 @@ interface IBasicDataPanelProps {
 const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherData, location}) => {
     const { address, currentConditions: { datetime, temp, icon } } = weatherData;  
       console.log(weatherData)
-      
+
       return (
         <div
           style={
@@ -41,7 +41,7 @@ const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherD
           <div className='mt-6'>
                    <h3 className='font-extralight text-4xl text-center'>{address.split(',')[0]}</h3>
             <p className='font-extralight text-7xl text-center'>{Math.round(temp)}&deg;</p>
-            <p className={'text-center font-extralight text-xl'}>{_.capitalize(icon)}</p>
+            <p className={'text-center font-extralight text-xl'}>{_.capitalize(icon.split('-').join(' '))}</p>
           </div>
      
             {/* <canvas id="canvas" style={{position : 'absolute', top: '0px', left : '0px'}}></canvas>

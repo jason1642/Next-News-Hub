@@ -4,7 +4,7 @@ const api = axios.create(
     {
         baseURL: 'https://visual-crossing-weather.p.rapidapi.com/forecast',
         params: {
-            aggregateHours: '24',
+            aggregateHours: '1',
             location: 'NewYorkCity,NY,USA',
             contentType: 'json',
             unitGroup: 'us',
