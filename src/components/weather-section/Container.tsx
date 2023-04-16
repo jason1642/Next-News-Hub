@@ -10,20 +10,25 @@ const WeatherDashboardContainer: React.FunctionComponent<IWeatherDashboardContai
     
     const [weatherData, setWeatherData] = React.useState<any>()
     const [location, setLocation ] = React.useState<string>()
+
+    
     React.useEffect(()=>{
+
         getVisualCrossingWeatherApiData().then((res: any)=> {
+            const tempLocation = res.config.params.location
             console.log(res)
-            setWeatherData(res.data)
-            setLocation(res.config.params.location)
+            setWeatherData(res.data.locations[tempLocation])
+            setLocation(tempLocation)
           }).catch((err: any)=> {
             console.log(err)
           })  
+
     },[])
     return (
     <div className='flex w-full min-w-[700px] bg-blue-400 rounded-xl'>
-        {weatherData && location &&<>
+        {weatherData && location && <>
             <BasicDataPanel location={location} weatherData={weatherData}/>
-            <WeatherDashboard />
+            <WeatherDashboard location={location} weatherData={weatherData}/>
             </>
         }
 

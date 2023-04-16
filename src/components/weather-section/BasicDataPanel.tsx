@@ -8,17 +8,9 @@ interface IBasicDataPanelProps {
 }
 
 const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherData, location}) => {
-    const {
-        locations:{
-          [location]:{ 
-            address,
-            currentConditions:{
-              datetime, temp, icon
-            }
-          }
-        }
-      } = weatherData;  
+    const { address, currentConditions: { datetime, temp, icon } } = weatherData;  
       console.log(weatherData)
+      
       return (
         <div
           style={
@@ -28,10 +20,10 @@ const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherD
               
             }
           }
-        className='rounded-xl basis-1/3  p-4 font-light text-white'>
+        className='rounded-xl basis-1/3 relative p-4 font-light text-white'>
           <Rain
           dropletOpacity={1}
-            dropletColor='rgb(0, 0, 0)'
+            dropletColor='rgb(255, 255, 255)'
           />
            {/* Location + sunrise */}
             <div className='flex justify-between'>
