@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
-
+import _ from 'lodash'
 
 interface IHourlyChartProps {
     weatherData: any;
@@ -13,11 +13,14 @@ const options: ApexOptions = {
         toolbar: {
           show: false  
         },
+        zoom: {
+            enabled: false,
+        },
         id: "hourly-weather-data-area-chart",
         animations: {
             enabled: true,
             easing: 'easeinout',
-            speed: 500,
+            speed: 500, 
             animateGradually: {
                 enabled: true,
                 delay: 100
@@ -27,36 +30,51 @@ const options: ApexOptions = {
                 speed: 300
             }
         },
+    
     },
+
+//     subtitle:{
+// text: 'qweqweqweqw'
+// },
     xaxis: {
         position: 'top',
+        tooltip:{
+            enabled: true,
+            style: {
+                fontSize: '.6rem'
+            }
+        },
         // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
         labels:{
             style: {
-                colors:'black'
+                colors:'black',
+                fontSize: '.5rem',
             },
             hideOverlappingLabels: true,
             rotate: 0,
             showDuplicates: false,
+            // Date ontop of x axis
+            formatter: val => val
         }
     },
     yaxis: {
+        min: (min)=>min - 4,
+        max: (max)=>max + 4,
         labels:{
             style:{
                 colors: 'black',
             },
             
         },
+        tooltip: {
+            enabled: true,
+           
+        },
         decimalsInFloat: 0
     },
     
     
-       tooltip: {
-        followCursor: true,
-        // theme: 'dark',
-    
-    
-    },
+  
     stroke: {
         show: true,
         // curve: 'smooth',
@@ -77,7 +95,7 @@ const options: ApexOptions = {
     },
     
        markers: {
-        size: 1,
+        size: 0,
         colors: ['#255aee', '#26cb8a'],
         // strokeColors: '#000000',
         strokeWidth: 0,
@@ -104,11 +122,11 @@ const options: ApexOptions = {
         borderColor: '#bababa3b',
         // strokeDashArray: 0,
         position: 'back',
-        // xaxis: {
-        //     lines: {
-        //         show: true
-        //     }
-        // },   
+        xaxis: {
+            lines: {
+                show: true
+            }
+        },   
         yaxis: {
             lines: {
                 show: false
@@ -141,9 +159,8 @@ const options: ApexOptions = {
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
     const hourlyWeatherData = React.useMemo(()=>{
-        console.log(weatherData?.values[0].datetimeStr.split('-04:00')[0])
         const seriesTemp = weatherData?.values.map((item: any)=> item.temp) 
-        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: '2-digit', }).format(itemx.datetime))
+        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: 'numeric', }).format(itemx.datetime))
         return ({
             categories: dateCategories,
             series: [{
@@ -165,16 +182,42 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                  series: hourlyWeatherData.series,
                 xaxis: {
                     ...options.xaxis,
-                    categories: hourlyWeatherData.categories
-                }
+                    categories: hourlyWeatherData.categories,                    
+                },
+                tooltip: {
+                    enabled: true,
+                    shared: false,
+                    followCursor: true,
+                    // theme: 'dark',
+                    x: {
+                        show: false
+                      },
+                      y: {
+                        
+                      },
+                      custom: ({series, seriesIndex, dataPointIndex})=>{
+                        console.log(series, seriesIndex, dataPointIndex)
+                        return `<div class='p-1 text-xs'>
+                            <p class='font-extralight'>Condition: ${_.capitalize(weatherData.values[dataPointIndex].conditions)}</p>
+                            <p class='font-extralight'>Humidity: ${weatherData.values[dataPointIndex].humidity}</p>
+                            <p class='font-extralight'>Precipitation: ${weatherData.values[dataPointIndex].precip}</p>
+
+                            <p class='font-extralight'>Visibility: ${weatherData.values[dataPointIndex].visibility}</p>
+
+                        </div>`
+                      }
+
+                
+                },
             }}
+            type="area"
 
             series={hourlyWeatherData.series}
-            type="area"
             width="500"
-        />
-    </div>
+            />
+            </div>
   );
 };
+
 
 export default HourlyChart;

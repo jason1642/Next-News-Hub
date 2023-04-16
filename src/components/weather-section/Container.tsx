@@ -17,7 +17,7 @@ const WeatherDashboardContainer: React.FunctionComponent<IWeatherDashboardContai
         getVisualCrossingWeatherApiData().then((res: any)=> {
             const tempLocation = res.config.params.location
             console.log(res)
-            res.data.locations[tempLocation].values.splice(20)
+            res.data.locations[tempLocation].values.splice(10)
             setWeatherData(res.data.locations[tempLocation])
             setLocation(tempLocation)
           }).catch((err: any)=> {
