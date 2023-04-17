@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ApexOptions } from "apexcharts";
-import Chart from "react-apexcharts";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area } from 'recharts';
+
 import _ from 'lodash'
 
 interface IHourlyChartProps {
@@ -15,6 +16,9 @@ const options: ApexOptions = {
         },
         zoom: {
             enabled: false,
+        },
+        sparkline: {
+            enabled: false
         },
         id: "hourly-weather-data-area-chart",
         animations: {
@@ -44,6 +48,7 @@ const options: ApexOptions = {
                 fontSize: '.6rem'
             }
         },
+      
         // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
         labels:{
             style: {
@@ -54,45 +59,45 @@ const options: ApexOptions = {
             rotate: 0,
             showDuplicates: false,
             // Date ontop of x axis
-            formatter: val => val
+            formatter: val =>val
         }
+    },
+    dataLabels: {
+        enabled: true,
+        
+        textAnchor: 'end',
+        // offsetY: -10,
+        style:{ 
+            colors: ['black'],
+            fontWeight: 'lighter'
+        },
+        background: {
+            enabled: false
+        },
+        formatter: (val)=>`${val}`
     },
     yaxis: {
         min: (min)=>min - 4,
         max: (max)=>max + 4,
         labels:{
+            show: false,
             style:{
                 colors: 'black',
             },
-            
         },
         tooltip: {
-            enabled: true,
-           
+            enabled: false,
         },
         decimalsInFloat: 0
     },
-    
-    
-  
     stroke: {
         show: true,
-        // curve: 'smooth',
         lineCap: 'butt',
         colors: undefined,
         width: 1,
         dashArray: 0,      
     },
-    theme: {
-        // mode: 'dark', 
-        // palette: 'palette1', 
-        // monochrome: {
-        //     enabled: false,
-        //     color: '#255aee',
-        //     shadeTo: 'dark',
-        //     shadeIntensity: 0.65
-        // },
-    },
+ 
     
        markers: {
         size: 0,
@@ -113,14 +118,10 @@ const options: ApexOptions = {
         hover: {
           size: undefined,
           sizeOffset: 2
-        },
-        
+        }, 
     },
-
     grid: {
-        // show: true,
         borderColor: '#bababa3b',
-        // strokeDashArray: 0,
         position: 'back',
         xaxis: {
             lines: {
@@ -132,25 +133,13 @@ const options: ApexOptions = {
                 show: false
             }
         },  
-        // row: {
-        //     colors: undefined,
-        //     opacity: 0.5
-        // },  
+ 
         column: {
             colors: undefined,
             opacity: 0.5
         },  
-        // padding: {
-        //     top: 0,
-        //     right: 0,
-        //     bottom: 0,
-        //     left: 0
-        // },  
+
     }
-
-
-
-
 
 
 }
@@ -159,14 +148,16 @@ const options: ApexOptions = {
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
     const hourlyWeatherData = React.useMemo(()=>{
-        const seriesTemp = weatherData?.values.map((item: any)=> item.temp) 
-        const dateCategories = weatherData?.values.map((itemx:any)=>Intl.DateTimeFormat('en', {hour: 'numeric', }).format(itemx.datetime))
-        return ({
-            categories: dateCategories,
-            series: [{
-            name: 'Temperature',
-            data: seriesTemp
-        }]})
+        weatherData?.values.splice(0,1, weatherData.currentConditions)
+        return weatherData?.values.map((item:any)=>({
+            dateTime: Intl.DateTimeFormat('en', {hour: 'numeric', }).format(new Date(item.datetimeStr || item.datetime)),
+            temp: item.temp,
+            condition: item.conditions || item.icon,
+            humidity: item.humidity,
+            precipitation: item.precip,
+            cloudCover: item.cloudcover,
+            visibility: item.visibility
+        }))
         },[weatherData])
 
   React.useEffect(() => {
@@ -175,7 +166,19 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
   return (
     <div>
-        <Chart
+{ hourlyWeatherData && 
+<AreaChart width={600} height={300} data={weatherData.values} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+<Area type="monotone" dataKey="temp" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+
+
+    <XAxis dataKey='dateTime'/>
+
+
+    <YAxis />
+    <Tooltip />
+  </AreaChart>}
+        {/* <Chart
         style={{color: 'black'}}
             options={{
                 ...options,
@@ -214,7 +217,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
             series={hourlyWeatherData.series}
             width="500"
-            />
+            /> */}
             </div>
   );
 };
