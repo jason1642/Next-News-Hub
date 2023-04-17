@@ -146,8 +146,8 @@ const options: ApexOptions = {
 
 const RenderTickIcon = ({ x, y, payload }: any)=>{
     console.log(x, y, payload)
-    // return <svg style={{height: 50, width: 50, color:'black', backgroundColor: 'black'}}href={"https://github.com/visualcrossing/WeatherIcons/blob/main/SVG/4th%20Set%20-%20Color/clear-day.svg"}/>
-    return <div>{payload.value}</div>
+    return <img style={{height: 50, width: 50, color:'black', backgroundColor: 'black'}}src={"https://github.com/visualcrossing/WeatherIcons/blob/main/SVG/4th%20Set%20-%20Color/clear-day.svg"}/>
+    // return <div>{payload.value}</div>
 }
 
 // ()=><img height={50} width={50} src='https://github.com/visualcrossing/WeatherIcons/blob/main/PNG/4th%20Set%20-%20Color/rain-snow.png'/>
@@ -198,8 +198,9 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
 <XAxis
     tickCount={10}
-    // tick={RenderTickIcon }
-
+    tick={<RenderTickIcon />}
+    height={60}
+    width={50}
       allowDuplicatedCategory={true} 
       allowDataOverflow={true} 
       xAxisId={2}
