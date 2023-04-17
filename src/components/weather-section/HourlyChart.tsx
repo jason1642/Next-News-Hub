@@ -124,7 +124,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                       tick={false}
                     //   hide
                     //   type='number'
-                    //   domain={['dataMin - 6', 'dataMax + 6']}
+                      domain={['dataMin - 6', 'dataMax + 6']}
                   />
                   <Tooltip />
               </AreaChart>
