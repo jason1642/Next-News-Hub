@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ApexOptions } from "apexcharts";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area } from 'recharts';
+import { LineChart,  ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area, CartesianAxis } from 'recharts';
 
 import _ from 'lodash'
 
@@ -167,17 +167,23 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
   return (
     <div>
 { hourlyWeatherData && 
-<AreaChart width={600} height={300} data={weatherData.values} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-<Area type="monotone" dataKey="temp" stroke="#8884d8" />
-    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+    //   <ResponsiveContainer width="100%" height="100%">
+
+<AreaChart width={500} height={400} data={hourlyWeatherData} >
+
+<Area label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
+    <CartesianAxis stroke="#060606"  />
 
 
-    <XAxis dataKey='dateTime'/>
+    <XAxis type='category'  axisLine={false} dataKey={'dateTime'} orientation='top' tick={{fontSize: '.8rem',}} />
+    <XAxis type={'number'} axisLine={true} dataKey={'temp'} orientation='bottom' tick={{fontSize: '.8rem',}} />
 
 
-    <YAxis />
+    <YAxis hide={true} allowDecimals={false} tick={{fontSize: '.8rem'}} type='number' domain={['dataMin - 6', 'dataMax + 6']}/>
     <Tooltip />
-  </AreaChart>}
+  </AreaChart>
+//   </ResponsiveContainer>
+  }
         {/* <Chart
         style={{color: 'black'}}
             options={{
