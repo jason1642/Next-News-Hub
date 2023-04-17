@@ -1,20 +1,20 @@
 import * as React from 'react';
 import HourlyChart from './HourlyChart';
-
+import _ from 'lodash'
 interface IWeatherDashboardProps {
   weatherData: any;
   location: string;
 }
 
-const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weatherData}) => {
+const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weatherData, location}) => {
   return (
     <div className='border basis-2/3 bg-blue-100 p-4'>
 
 
-        Heres a chart
+    
         {/* Header */}
         <div className=''>
-            Welcome Back User!
+            Currently displaying the weather for {_.startCase(location)}
         </div>
         {/* Weather line graph */}
         {/* Table of hourly weather information, sectioned by days */}

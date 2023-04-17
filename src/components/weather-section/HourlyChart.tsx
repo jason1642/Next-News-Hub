@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ApexOptions } from "apexcharts";
 import { LineChart,  ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area, CartesianAxis } from 'recharts';
-
+import ClearDay from './weather-icons/clear-day.svg'
 import _ from 'lodash'
 
 interface IHourlyChartProps {
@@ -144,7 +144,13 @@ const options: ApexOptions = {
 
 }
 
+const RenderTickIcon = ({ x, y, payload }: any)=>{
+    console.log(x, y, payload)
+    // return <svg style={{height: 50, width: 50, color:'black', backgroundColor: 'black'}}href={"https://github.com/visualcrossing/WeatherIcons/blob/main/SVG/4th%20Set%20-%20Color/clear-day.svg"}/>
+    return <div>{payload.value}</div>
+}
 
+// ()=><img height={50} width={50} src='https://github.com/visualcrossing/WeatherIcons/blob/main/PNG/4th%20Set%20-%20Color/rain-snow.png'/>
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
     const hourlyWeatherData = React.useMemo(()=>{
@@ -169,16 +175,61 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 { hourlyWeatherData && 
     //   <ResponsiveContainer width="100%" height="100%">
 
-<AreaChart width={500} height={400} data={hourlyWeatherData} >
+<AreaChart width={620} height={500} data={hourlyWeatherData} >
 
 
 
-<Area xAxisId={1} label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
-    <XAxis xAxisId={1} tickLine={false} axisLine={false} dataKey="dateTime" orientation='top' />
+<Area xAxisId={1}  type="natural" dataKey="condition" stroke="#8884d8" />
+    <XAxis
+    tickCount={10}
+      
+      allowDuplicatedCategory={true} 
+      allowDataOverflow={true} 
+      xAxisId={1}
+      tickLine={false}  
+      type='category' 
+      axisLine={false}
+      tickFormatter={(val)=>`${val}\u00b0`}
+      dataKey={'temp'} 
+      orientation='top'
+      tick={{fontSize: '1.2rem',}} 
+     />
+<Area xAxisId={2}  type="natural" dataKey="condition" stroke="#8884d8" />
+
+<XAxis
+    tickCount={10}
+    // tick={RenderTickIcon }
+
+      allowDuplicatedCategory={true} 
+      allowDataOverflow={true} 
+      xAxisId={2}
+      tickLine={false}  
+      type='category' 
+      axisLine={false}
+    //   tickFormatter={(val)=>`${val}`}
+      dataKey={'condition'} 
+      orientation='top'
+     />
 
 
-<Area xAxisId={2}  label={{fontSize: '15px'}} type="natural" dataKey="condition" stroke="#8884d8" />
-    <XAxis ticks={['<img  src={}/>']} xAxisId={2} tickLine={false}  type='number'  axisLine={false} dataKey={'condition'} orientation='top' tick={{fontSize: '.8rem',}} />
+
+
+
+
+<Area xAxisId={3} label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
+    <XAxis
+    allowDuplicatedCategory={true} 
+    allowDataOverflow={true} 
+     xAxisId={3} 
+     tickLine={false}
+     axisLine={false} 
+     dataKey="dateTime"
+     orientation='top'  
+     tick={{fontSize: '1.2rem',}} 
+
+      />
+
+
 
 
 

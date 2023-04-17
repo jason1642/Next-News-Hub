@@ -25,6 +25,7 @@ const WeatherDashboardContainer: React.FunctionComponent<IWeatherDashboardContai
           })  
 
     },[])
+    
     return (
     <div className='flex w-full min-w-[700px] bg-blue-400 rounded-xl'>
         {weatherData && location && <>
