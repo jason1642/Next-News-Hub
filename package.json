@@ -29,6 +29,7 @@
     "react-dom": "18.2.0",
     "react-rain-animation": "^1.0.4",
     "react-rainfall": "^0.1.5305",
+    "react-svg": "^16.1.8",
     "recharts": "^2.5.0",
     "styled-components": "^5.3.9",
     "typescript": "^5.0.4"

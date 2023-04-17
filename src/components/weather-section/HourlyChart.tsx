@@ -3,6 +3,7 @@ import { ApexOptions } from "apexcharts";
 import { LineChart,  ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area, CartesianAxis } from 'recharts';
 import ClearDay from './weather-icons/clear-day.svg'
 import _ from 'lodash'
+import {ReactSVG} from 'react-svg';
 
 interface IHourlyChartProps {
     weatherData: any;
@@ -146,8 +147,10 @@ const options: ApexOptions = {
 
 const RenderTickIcon = ({ x, y, payload }: any)=>{
     console.log(x, y, payload)
-    return <img style={{height: 50, width: 50, color:'black', backgroundColor: 'black'}}src={"https://github.com/visualcrossing/WeatherIcons/blob/main/SVG/4th%20Set%20-%20Color/clear-day.svg"}/>
-    // return <div>{payload.value}</div>
+    return      <g transform={`translate(${x},${y})`}>
+ <image xlinkHref={"https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/4th%20Set%20-%20Color/clear-day.png"} x={0} y={0} height="31px" width="88px" textAnchor="middle" fill="#666" />
+    </g>
+  
 }
 
 // ()=><img height={50} width={50} src='https://github.com/visualcrossing/WeatherIcons/blob/main/PNG/4th%20Set%20-%20Color/rain-snow.png'/>
@@ -179,7 +182,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
 
 
-<Area xAxisId={1}  type="natural" dataKey="condition" stroke="#8884d8" />
+    <Area xAxisId={1}  type="natural" dataKey="condition" stroke="#8884d8" />
     <XAxis
     tickCount={10}
       
@@ -194,23 +197,23 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
       orientation='top'
       tick={{fontSize: '1.2rem',}} 
      />
-<Area xAxisId={2}  type="natural" dataKey="condition" stroke="#8884d8" />
 
-<XAxis
-    tickCount={10}
-    tick={<RenderTickIcon />}
-    height={60}
-    width={50}
-      allowDuplicatedCategory={true} 
-      allowDataOverflow={true} 
-      xAxisId={2}
-      tickLine={false}  
-      type='category' 
-      axisLine={false}
+    <Area xAxisId={2}  type="natural" dataKey="condition" stroke="#8884d8" />
+        <XAxis
+        tickCount={10}
+        tick={<RenderTickIcon/>}
+        height={60}
+        width={50}
+        allowDuplicatedCategory={true} 
+        allowDataOverflow={true} 
+        xAxisId={2}
+        tickLine={false}  
+        type='category' 
+        axisLine={false}
     //   tickFormatter={(val)=>`${val}`}
-      dataKey={'condition'} 
-      orientation='top'
-     />
+        dataKey={'condition'} 
+        orientation='top'
+        />
 
 
 
