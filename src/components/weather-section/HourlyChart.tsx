@@ -171,12 +171,16 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
 <AreaChart width={500} height={400} data={hourlyWeatherData} >
 
-<Area label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
+<Area xAxisId={1}  label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
+    <XAxis xAxisId={1} type='category'  axisLine={false} dataKey={'dateTime'} orientation='top' tick={{fontSize: '.8rem',}} />
+
+
+
     <CartesianAxis stroke="#060606"  />
 
 
-    <XAxis type='category'  axisLine={false} dataKey={'dateTime'} orientation='top' tick={{fontSize: '.8rem',}} />
-    <XAxis type={'number'} axisLine={true} dataKey={'temp'} orientation='bottom' tick={{fontSize: '.8rem',}} />
+<Area xAxisId={2} label={{fontSize: '15px'}} type="natural" dataKey="condition" stroke="#8884d8" />
+    <XAxis xAxisId={2} type={'number'}  />
 
 
     <YAxis hide={true} allowDecimals={false} tick={{fontSize: '.8rem'}} type='number' domain={['dataMin - 6', 'dataMax + 6']}/>
