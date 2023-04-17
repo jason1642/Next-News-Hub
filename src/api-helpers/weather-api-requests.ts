@@ -8,7 +8,8 @@ const api = axios.create(
             location: 'NewYorkCity,NY,USA',
             contentType: 'json',
             unitGroup: 'us',
-            shortColumnNames: 'false'
+            shortColumnNames: 'false',
+            iconSet: 'icons1'
         },
         headers: {
             'X-RapidAPI-Key': process.env.NEXT_PUBLIC_VISUALCROSSINGWEATHER_API_KEY,

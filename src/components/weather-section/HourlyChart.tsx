@@ -1,173 +1,41 @@
 import * as React from 'react';
-import { ApexOptions } from "apexcharts";
 import { LineChart,  ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, AreaChart, Area, CartesianAxis } from 'recharts';
-import ClearDay from './weather-icons/clear-day.svg'
 import _ from 'lodash'
-import {ReactSVG} from 'react-svg';
 
 interface IHourlyChartProps {
     weatherData: any;
     
 }
-const options: ApexOptions = {
-    
-    chart: {
-        toolbar: {
-          show: false  
-        },
-        zoom: {
-            enabled: false,
-        },
-        sparkline: {
-            enabled: false
-        },
-        id: "hourly-weather-data-area-chart",
-        animations: {
-            enabled: true,
-            easing: 'easeinout',
-            speed: 500, 
-            animateGradually: {
-                enabled: true,
-                delay: 100
-            },
-            dynamicAnimation: {
-                enabled: true,
-                speed: 300
-            }
-        },
-    
-    },
 
-//     subtitle:{
-// text: 'qweqweqweqw'
-// },
-    xaxis: {
-        position: 'top',
-        tooltip:{
-            enabled: true,
-            style: {
-                fontSize: '.6rem'
-            }
-        },
-      
-        // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-        labels:{
-            style: {
-                colors:'black',
-                fontSize: '.5rem',
-            },
-            hideOverlappingLabels: true,
-            rotate: 0,
-            showDuplicates: false,
-            // Date ontop of x axis
-            formatter: val =>val
-        }
-    },
-    dataLabels: {
-        enabled: true,
-        
-        textAnchor: 'end',
-        // offsetY: -10,
-        style:{ 
-            colors: ['black'],
-            fontWeight: 'lighter'
-        },
-        background: {
-            enabled: false
-        },
-        formatter: (val)=>`${val}`
-    },
-    yaxis: {
-        min: (min)=>min - 4,
-        max: (max)=>max + 4,
-        labels:{
-            show: false,
-            style:{
-                colors: 'black',
-            },
-        },
-        tooltip: {
-            enabled: false,
-        },
-        decimalsInFloat: 0
-    },
-    stroke: {
-        show: true,
-        lineCap: 'butt',
-        colors: undefined,
-        width: 1,
-        dashArray: 0,      
-    },
- 
-    
-       markers: {
-        size: 0,
-        colors: ['#255aee', '#26cb8a'],
-        // strokeColors: '#000000',
-        strokeWidth: 0,
-        strokeOpacity: 0,
-        strokeDashArray: 0,
-        fillOpacity: 0,
-        discrete: [],
-        shape: "circle",
-        radius: 4,
-        offsetX: 0,
-        offsetY: 0,
-        onClick: undefined,
-        onDblClick: undefined,
-        showNullDataPoints: true,
-        hover: {
-          size: undefined,
-          sizeOffset: 2
-        }, 
-    },
-    grid: {
-        borderColor: '#bababa3b',
-        position: 'back',
-        xaxis: {
-            lines: {
-                show: true
-            }
-        },   
-        yaxis: {
-            lines: {
-                show: false
-            }
-        },  
- 
-        column: {
-            colors: undefined,
-            opacity: 0.5
-        },  
-
-    }
-
-
-}
 
 const RenderTickIcon = ({ x, y, payload }: any)=>{
-    console.log(x, y, payload)
-    return      <g transform={`translate(${x},${y})`}>
- <image xlinkHref={"https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/4th%20Set%20-%20Color/clear-day.png"} x={0} y={0} height="31px" width="88px" textAnchor="middle" fill="#666" />
+    console.log(payload)
+return      <g transform={`translate(${x},${y - 40})`}>
+        <image
+            xlinkHref={`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/4th%20Set%20-%20Color/${payload.value}.png`}
+            height="23px"
+            width="44px"
+         
+        />
     </g>
-  
+
 }
 
-// ()=><img height={50} width={50} src='https://github.com/visualcrossing/WeatherIcons/blob/main/PNG/4th%20Set%20-%20Color/rain-snow.png'/>
 const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) => {
 
-    const hourlyWeatherData = React.useMemo(()=>{
-        weatherData?.values.splice(0,1, weatherData.currentConditions)
-        return weatherData?.values.map((item:any)=>({
-            dateTime: Intl.DateTimeFormat('en', {hour: 'numeric', }).format(new Date(item.datetimeStr || item.datetime)),
+    const hourlyWeatherData = React.useMemo(() => {
+        weatherData?.values.splice(0, 1, weatherData.currentConditions)
+        return weatherData?.values.map((item: any) => ({
+            dateTime: Intl.DateTimeFormat('en', { hour: 'numeric', }).format(new Date(item.datetimeStr || item.datetime)),
             temp: item.temp,
             condition: item.conditions || item.icon,
             humidity: item.humidity,
             precipitation: item.precip,
             cloudCover: item.cloudcover,
-            visibility: item.visibility
+            visibility: item.visibility,
+            icon: item.icon
         }))
-        },[weatherData])
+    }, [weatherData])
 
   React.useEffect(() => {
     console.log(hourlyWeatherData)
@@ -176,42 +44,44 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
   return (
     <div>
 { hourlyWeatherData && 
-    //   <ResponsiveContainer width="100%" height="100%">
 
-<AreaChart width={620} height={500} data={hourlyWeatherData} >
+<AreaChart 
+width={700} 
+height={350}
+data={hourlyWeatherData} >
 
 
 
-    <Area xAxisId={1}  type="natural" dataKey="condition" stroke="#8884d8" />
+    <Area xAxisId={1}  type="natural" dataKey="tempo" stroke="#8884d8" />
     <XAxis
-    tickCount={10}
-      
-      allowDuplicatedCategory={true} 
-      allowDataOverflow={true} 
-      xAxisId={1}
-      tickLine={false}  
-      type='category' 
-      axisLine={false}
-      tickFormatter={(val)=>`${val}\u00b0`}
-      dataKey={'temp'} 
-      orientation='top'
-      tick={{fontSize: '1.2rem',}} 
-     />
+        tickCount={10}
+        interval={0}
+        // allowDuplicatedCategory={true} 
+        // allowDataOverflow={true} 
+        xAxisId={1}
+        tickLine={false}  
+        type='category' 
+        axisLine={false}
+        tickFormatter={(val)=>`${val}\u00b0`}
+        dataKey={'temp'} 
+        orientation='top'
+        tick={{fontSize: '1.1rem',}} 
+        />
 
-    <Area xAxisId={2}  type="natural" dataKey="condition" stroke="#8884d8" />
+    <Area xAxisId={2} type="natural" dataKey="temp" stroke="#8884d8" />
         <XAxis
         tickCount={10}
         tick={<RenderTickIcon/>}
         height={60}
-        width={50}
+        // width={10}
         allowDuplicatedCategory={true} 
         allowDataOverflow={true} 
         xAxisId={2}
         tickLine={false}  
-        type='category' 
+        // type='category' 
         axisLine={false}
     //   tickFormatter={(val)=>`${val}`}
-        dataKey={'condition'} 
+        dataKey={'icon'} 
         orientation='top'
         />
 
@@ -220,10 +90,11 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
 
 
-<Area xAxisId={3} label={{fontSize: '15px'}} type="natural" dataKey="temp" stroke="#8884d8" />
+<Area xAxisId={3} type="natural" dataKey="condition" stroke="#8884d8" />
     <XAxis
-    allowDuplicatedCategory={true} 
-    allowDataOverflow={true} 
+    // allowDuplicatedCategory={true} 
+    // allowDataOverflow={true} 
+    type="category"
      xAxisId={3} 
      tickLine={false}
      axisLine={false} 
@@ -245,48 +116,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
     <YAxis hide={true} allowDecimals={false} tick={{fontSize: '.8rem'}} type='number' domain={['dataMin - 6', 'dataMax + 6']}/>
     <Tooltip />
   </AreaChart>
-//   </ResponsiveContainer>
-  }
-        {/* <Chart
-        style={{color: 'black'}}
-            options={{
-                ...options,
-                 series: hourlyWeatherData.series,
-                xaxis: {
-                    ...options.xaxis,
-                    categories: hourlyWeatherData.categories,                    
-                },
-                tooltip: {
-                    enabled: true,
-                    shared: false,
-                    followCursor: true,
-                    // theme: 'dark',
-                    x: {
-                        show: false
-                      },
-                      y: {
-                        
-                      },
-                      custom: ({series, seriesIndex, dataPointIndex})=>{
-                        console.log(series, seriesIndex, dataPointIndex)
-                        return `<div class='p-1 text-xs'>
-                            <p class='font-extralight'>Condition: ${_.capitalize(weatherData.values[dataPointIndex].conditions)}</p>
-                            <p class='font-extralight'>Humidity: ${weatherData.values[dataPointIndex].humidity}</p>
-                            <p class='font-extralight'>Precipitation: ${weatherData.values[dataPointIndex].precip}</p>
-
-                            <p class='font-extralight'>Visibility: ${weatherData.values[dataPointIndex].visibility}</p>
-
-                        </div>`
-                      }
-
-                
-                },
-            }}
-            type="area"
-
-            series={hourlyWeatherData.series}
-            width="500"
-            /> */}
+}
             </div>
   );
 };
