@@ -6,7 +6,7 @@ interface IHumidityCardProps {
     value:number;
 }
 // 0 - 100% : good - normal - bad
-const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value}) => {
+const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value, labels}) => {
   return (
     <CardContainer icon={'waterdroplet'} title={'Humidity'}>
 
@@ -15,7 +15,10 @@ const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value}) => {
         {value}% 
 
 
-    {/* <PercentFillMeter /> */}
+    <PercentFillMeter 
+        value={82}
+        title={'Degrees'}
+    />
 
     </CardContainer>
   );

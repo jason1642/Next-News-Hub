@@ -27,7 +27,7 @@ const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weat
 
 
 
-    <div className='p-4 bg-green-300'>
+    <div className='p-4 w-full flex justify-between bg-green-300'>
           {/* Bento Card Details Section*/}
 
       <HumidityCard value={humidity}/>

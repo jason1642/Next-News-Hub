@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display:flex;
-  border: 1px solid black;
+  background-color: green;
+  height: 20px;
+  border-radius: 12px;
 `;
 
 
@@ -11,7 +13,8 @@ const Container = styled.div`
 const ProgressMeter = styled.div`
   display:flex;
   height: 100%;
-  background-color: 'lightblue';
+  background-color: red;
+  border-radius: 12px 0px 0px 12px;
 `;
 
 interface IMeterProps {
