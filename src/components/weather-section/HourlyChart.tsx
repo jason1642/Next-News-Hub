@@ -9,7 +9,7 @@ interface IHourlyChartProps {
 
 
 const RenderTickIcon = ({ x, y, payload }: any)=>{
-    console.log(payload)
+    // console.log(payload)
     return <g 
     style={{margin: '0 auto'}}
     transform={`translate(${x - 20},${y - 40})`}
@@ -39,7 +39,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
     }, [weatherData])
 
   React.useEffect(() => {
-    console.log(hourlyWeatherData)
+    // console.log(hourlyWeatherData)
   }, [hourlyWeatherData]);
 
   return (

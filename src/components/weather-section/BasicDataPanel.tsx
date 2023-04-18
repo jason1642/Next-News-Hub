@@ -9,7 +9,7 @@ interface IBasicDataPanelProps {
 
 const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherData, location}) => {
     const { address, currentConditions: { datetime, temp, icon } } = weatherData;  
-      console.log(weatherData)
+      // console.log(weatherData)
 
       return (
         <div
