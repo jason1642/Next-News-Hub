@@ -43,7 +43,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
   }, [hourlyWeatherData]);
 
   return (
-      <div style={{ margin: '0 auto', padding: '20px', backgroundColor: 'blue' }}>
+      <div className='rounded-xl bg-blue-400' style={{ margin: '0 auto', padding: '20px' }}>
           {hourlyWeatherData &&
 
               <AreaChart
@@ -122,7 +122,8 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                       axisLine={false}
                       allowDecimals={false}
                       tick={false}
-                      hide
+                    //   width={30}
+                    //   hide
                     //   type='number'
                       domain={['dataMin - 6', 'dataMax + 6']}
                   />

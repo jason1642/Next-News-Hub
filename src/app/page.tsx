@@ -32,10 +32,8 @@ const [newsData, setNewsData] = useState<Array<any>>()
   return ( 
 
     <main 
-    style={{
-      height: '500px',width: '600px' 
-    }}
-    className='flex mt-5 flex-col relative mx-auto content-middle text-black'>
+    
+    className='flex mt-5 flex-col justify-center relative mx-auto content-middle text-black'>
       
       {/* {<Rain/>} */}
 
@@ -49,7 +47,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
       }
 
       
-  <section className='flex max-w-7xl h-full w-96 mx-auto relative content-middle text-black '>
+  <section className='flex  max-w-7xl h-full w-96 mx-auto relative justify-center content-middle text-black '>
 
    
 
