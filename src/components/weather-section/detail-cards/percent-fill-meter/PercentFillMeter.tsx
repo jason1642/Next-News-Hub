@@ -33,7 +33,10 @@ const PercentFillMeter: React.FunctionComponent<IPercentFillMeterProps> = ({
 
     const [percentFilled, setPercentFilled] = React.useState<number>(value)
 
-
+    React.useEffect(()=>{
+        // If range is set to array, figure out percentage with range[x, y] and value
+        // Example: if 
+    },[])
 
 
 
