@@ -17,34 +17,16 @@ const ProgressMeter = styled.div`
   margin: 0 auto;
   width: 100px;
   height: 80px;
-  background: lightblue;
+  background-color: lightblue;
   position: relative;
   border: 1px solid black;
   display:flex;
   /* justify-content: center;
   align-items: center; */
   overflow: hidden;
-  z-index: 1;
+  /* z-index: 1; */
 
-  &:before{
-    background: #f33ded;
-  position: absolute;
-  border: 10px dashed transparent;
-  border-bottom: none;
-  /* border-left: none; */
-  /* border-rightt: none; */
-  content: "";
-  z-index: 3;
-  left:0;
-  top: 0;
-  right:0;
-  bottom: -25px;
-  /* height: 80%; */
-  border-radius: 100% 100% 0 0;
-
-
-
-  }
+ 
 
   &:after{
     background: #99ff00;
@@ -56,7 +38,7 @@ const ProgressMeter = styled.div`
   /* border-left: none; */
   /* border-rightt: none; */
   content: "";
-  z-index: 2;
+  /* z-index: 2; */
   left:0;
   top: 0;
   right:0;
@@ -68,6 +50,40 @@ const ProgressMeter = styled.div`
   }
  
 `;
+const Filler = styled.div`
+  display:flex;
+  background-color:red;
+  position: absolute;
+  /* border: 10px dashed black; */
+  border-bottom: none;
+  /* border-left: none; */
+  /* border-rightt: none; */
+  content: "";
+    overflow: hidden;
+
+  z-index: 2;
+  left:0;
+  top: 0;
+  right:0;
+  bottom: -25px;
+  /* height: 80%; */
+  border-radius: 50% 50% 50% 50%;
+
+`;
+
+const ProgressFiller = styled.div`
+  display:flex;
+  position: absolute;
+  height: 50%;
+  width: 42%;
+  z-index: 3;
+  background-color: #07ff8b;
+  border-radius: inherit;
+`;
+
+
+
+
 
 const Title = styled.div`
   display:flex;
@@ -88,7 +104,9 @@ interface IMeterProps {
 const Meter: React.FunctionComponent<IMeterProps> = ({percentFilled, labels}) => {
   return (
      <Container>
-     
+     <Filler>
+      <ProgressFiller/>
+     </Filler>
 
     {/* Bar container */}
    
