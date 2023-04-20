@@ -28,33 +28,14 @@ const ProgressMeter = styled.div`
 
  
 
-  &:after{
-    background: #99ff00;
-  position: relative;
-  width: 42%;
-  height: 100%;
-  /* border: 10px dashed black; */
-  border-bottom: none;
-  /* border-left: none; */
-  /* border-rightt: none; */
-  content: "";
-  /* z-index: 2; */
-  left:0;
-  top: 0;
-  right:0;
-  bottom: -25px;
-  /* height: 80%; */
-  border-radius: 100% 100% 0 0;
 
-
-  }
  
 `;
 const Filler = styled.div`
   display:flex;
   background-color:red;
   position: absolute;
-  border: 10px solid transparent;
+  border: 10px solid blue;
   border-bottom: none;
   /* border-left: none; */
   /* border-rightt: none; */
@@ -75,6 +56,7 @@ const ProgressFiller = styled.div`
   display:flex;
   position: absolute;
   height: 50%;
+  left: 60%;
   width: 42%;
   z-index: 5;
   background-color: #07ff8b;
