@@ -54,14 +54,14 @@ const Filler = styled.div`
   display:flex;
   background-color:red;
   position: absolute;
-  /* border: 10px dashed black; */
+  border: 10px solid transparent;
   border-bottom: none;
   /* border-left: none; */
   /* border-rightt: none; */
-  content: "";
+  /* content: ""; */
     overflow: hidden;
 
-  z-index: 2;
+  z-index: 1;
   left:0;
   top: 0;
   right:0;
@@ -76,9 +76,9 @@ const ProgressFiller = styled.div`
   position: absolute;
   height: 50%;
   width: 42%;
-  z-index: 3;
+  z-index: 5;
   background-color: #07ff8b;
-  border-radius: inherit;
+  /* border-radius: inherit; */
 `;
 
 
