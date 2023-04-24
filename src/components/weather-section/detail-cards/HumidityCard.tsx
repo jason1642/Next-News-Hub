@@ -1,10 +1,10 @@
 import * as React from 'react';
 import CardContainer from './CardContainer';
-import PercentFillMeter from './percent-fill-meter/PercentFillMeter';
-import type { labels } from './percent-fill-meter/types';
+import { GaugeMeter } from '@jason1642/react-dashboard-meter';
+
 interface IHumidityCardProps {
     value:number;
-    labels: labels;
+    labels: any;
 }
 // 0 - 100% : good - normal - bad
 const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value, labels}) => {
@@ -12,13 +12,12 @@ const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value, label
     <CardContainer icon={'waterdroplet'} title={'Humidity'}>
 
 
-
-        {value}% 
-
-
-    <PercentFillMeter 
-        value={82}
-        title={'Degrees'}
+    <GaugeMeter 
+        value={10}
+        titleOptions={{appendedText: 'px'}}
+        labelOptions={{}}
+        guageInnerAreaSize={80}
+        range={[0, 40]}
     />
 
     </CardContainer>

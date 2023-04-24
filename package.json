@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@jason1642/react-dashboard-meter": "^0.0.9",
+    "@jason1642/react-dashboard-meter": "^0.0.9001",
     "@mui/material": "^5.11.16",
     "@mui/styled-engine-sc": "^5.11.11",
     "@types/node": "18.15.11",
