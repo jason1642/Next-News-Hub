@@ -39,7 +39,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
 
  
       {newsData && 
-        <section className='flex max-w-7xl mx-auto content-middle text-black'>
+        <section className='flex max-w-screen-2xl mx-auto content-middle text-black'>
           <NewsColumnOne newsData={newsData}/>
           <NewsColumnTwo newsData={newsData}/>
           <NewsColumnThree newsData={newsData}/> 
@@ -47,7 +47,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
       }
 
       
-  <section className='flex  max-w-7xl h-full w-96 mx-auto relative justify-center content-middle text-black '>
+  <section className='flex  max-w-8xl h-full mx-auto relative justify-center content-middle text-black '>
 
    
 

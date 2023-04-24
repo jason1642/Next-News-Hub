@@ -11,14 +11,16 @@ const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value, label
   return (
     <CardContainer icon={'waterdroplet'} title={'Humidity'}>
 
-
-    <GaugeMeter 
+    <div>
+           <GaugeMeter 
         value={10}
         titleOptions={{appendedText: 'px'}}
-        labelOptions={{}}
+        labelOptions={undefined}
         guageInnerAreaSize={80}
         range={[0, 40]}
     />
+    </div>
+ 
 
     </CardContainer>
   );
