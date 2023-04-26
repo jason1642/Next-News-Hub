@@ -10,31 +10,20 @@ const CardContainer: React.FunctionComponent<ICardContainerProps> = ({ title, ch
     return (
         <div
             className='
-     overflow-hidden w-[30%] bg-white 
-     rounded-xl justify-around pb-3
+     flex flex-col 
+     overflow-hidden w-[32%] bg-white border-black border
+     rounded-xl justify-around py-5 items-center
      '>
-
             {/* Header Row */}
-            <div className='px-3 flex justify-between'>
-                {/* Title */}
-                <div className='pt-1 px-2'>
-                    {title}
-                </div>
-
-                {/* Icon */}
-                <div>
-                    {Icon && <Icon />}
-
-                </div>
-
+            <div className='px-3 w-full flex top-[0%]  justify-between'>
+                <div className='pt-1 px-2'> {title} </div>
+                <div> {Icon && <Icon sx={{backgroundColor: '#60a5fa', borderRadius: '10px', padding: '2px', color: 'white', fontSize: '1.6rem'}} />} </div>
             </div>
 
-
-            {/* Mini graph + value  */}
-            <div className='position-relative mx-auto'>
+            {/* Mini graph w/ value  */}
+            <div className='mx-auto relative'>
                 {children}
             </div>
-
 
         </div>
     );
