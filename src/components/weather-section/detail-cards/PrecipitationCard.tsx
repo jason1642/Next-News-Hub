@@ -10,7 +10,7 @@ const PrecipitationCard: React.FunctionComponent<IPrecipitationCardProps> = ({va
 
 
   return (
-    <CardContainer icon={'rainclouds'} title={'Precipitation'}>
+    <CardContainer Icon={undefined} title={'Precipitation'}>
 
         {value}
 

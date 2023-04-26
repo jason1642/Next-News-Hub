@@ -3,32 +3,41 @@ import * as React from 'react';
 interface ICardContainerProps {
     title: string;
     children: React.ReactNode;
-    icon: string;
+    Icon?: any;
 }
 
-const CardContainer: React.FunctionComponent<ICardContainerProps> = ({title, children}) => {
-  return (
-    <div className='p-2 overflow-hidden w-[30%] border border-black'>
-        
-        {/* Header Row */}
-        <div className='p-4 '>
-            {/* Title */}
-            <div className='p-4 '> 
-              {title}
-            </div>
-            {/* Icon */}
-         <div>
+const CardContainer: React.FunctionComponent<ICardContainerProps> = ({ title, children, Icon }) => {
+    return (
+        <div
+            className='
+     overflow-hidden w-[30%] bg-white 
+     rounded-xl justify-around pb-3
+     '>
 
-         </div>
+            {/* Header Row */}
+            <div className='px-3 flex justify-between'>
+                {/* Title */}
+                <div className='pt-1 px-2'>
+                    {title}
+                </div>
+
+                {/* Icon */}
+                <div>
+                    {Icon && <Icon />}
+
+                </div>
+
+            </div>
+
+
+            {/* Mini graph + value  */}
+            <div className='position-relative mx-auto'>
+                {children}
+            </div>
+
 
         </div>
-
-
-        {/* Mini graph + value  */}
-        {children}
-
-    </div>
-  );
+    );
 };
 
 export default CardContainer;
