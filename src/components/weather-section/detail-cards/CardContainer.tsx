@@ -8,7 +8,7 @@ interface ICardContainerProps {
 
 const CardContainer: React.FunctionComponent<ICardContainerProps> = ({title, children}) => {
   return (
-    <div className='p-2 w-[30%] border border-black'>
+    <div className='p-2 overflow-hidden w-[30%] border border-black'>
         
         {/* Header Row */}
         <div className='p-4 '>

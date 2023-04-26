@@ -1,6 +1,5 @@
 import * as React from 'react';
 import CardContainer from './CardContainer';
-import { GaugeMeter } from '@jason1642/react-dashboard-meter';
 
 interface IHumidityCardProps {
     value:number;
@@ -11,15 +10,9 @@ const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value, label
   return (
     <CardContainer icon={'waterdroplet'} title={'Humidity'}>
 
-    <div>
-           <GaugeMeter 
-        value={10}
-        titleOptions={{appendedText: 'px'}}
-        labelOptions={undefined}
-        guageInnerAreaSize={80}
-        range={[0, 40]}
-    />
-    </div>
+  
+    
+   
  
 
     </CardContainer>
