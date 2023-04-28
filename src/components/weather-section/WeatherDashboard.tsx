@@ -10,7 +10,7 @@ interface IWeatherDashboardProps {
 }
 
 const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weatherData, location}) => {
-  console.log(weatherData)
+  console.log(weatherData.currentConditions.wspd)
   const {humidity, precip, wspd}  = weatherData.currentConditions
   return (
     <div className='border rounded-r-xl basis-2/3 bg-blue-100 p-4'>

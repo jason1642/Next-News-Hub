@@ -13,15 +13,9 @@ const WindCard: React.FunctionComponent<IWindCardProps> = ({ value }) => {
     console.log(value)
     return (
         <CardContainer Icon={AirIcon} title={'Wind'}>
-
-            <GaugeMeter
-                value={value}
-                // titleOptions={{
-                //     appendedText: 'km/h',
-                //     toFixedAmount: 2
-                // }}
-
-                // range={[0, 40]}
+                   <GaugeMeter
+                value={33}
+               
             />
 
         </CardContainer>

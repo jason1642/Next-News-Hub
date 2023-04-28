@@ -11,7 +11,7 @@ const CardContainer: React.FunctionComponent<ICardContainerProps> = ({ title, ch
         <div
             className='
      flex flex-col 
-     overflow-hidden w-[32%] bg-white border-black border
+     overflow-hidden w-[30%] bg-white 
      rounded-xl justify-around py-5 items-center
      '>
             {/* Header Row */}
@@ -21,7 +21,7 @@ const CardContainer: React.FunctionComponent<ICardContainerProps> = ({ title, ch
             </div>
 
             {/* Mini graph w/ value  */}
-            <div className='mx-auto relative'>
+            <div className='mx-auto w-[95%] relative'>
                 {children}
             </div>
 

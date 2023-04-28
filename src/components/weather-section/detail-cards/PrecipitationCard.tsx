@@ -7,12 +7,12 @@ interface IPrecipitationCardProps {
 }
 
 const PrecipitationCard: React.FunctionComponent<IPrecipitationCardProps> = ({value}) => {
-
+    console.log(value)
 
   return (
     <CardContainer Icon={undefined} title={'Precipitation'}>
 
-        {value}
+        {value + 12452}qweqw
 
     </CardContainer>
   );
