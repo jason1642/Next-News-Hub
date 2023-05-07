@@ -10,7 +10,7 @@ import Cors from 'cors'
 export const GET = async(req: NextApiRequest, res: NextApiResponse) =>{
   // const { pid } = req.query
   console.log(req)
-  console.log('Thhihs is the handler api2')
+  console.log('Thhihs is the handler api777')
    
   return new Response(JSON.stringify({
     // data: data ? data : [],
