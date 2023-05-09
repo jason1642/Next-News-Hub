@@ -12,7 +12,7 @@ const CardContainer: React.FunctionComponent<ICardContainerProps> = ({ title, ch
             className='
      flex flex-col 
      overflow-hidden w-[30%] bg-white 
-     rounded-xl justify-around py-5 items-center
+     rounded-xl justify-around py-3 items-center px-1
      '>
             {/* Header Row */}
             <div className='px-3 w-full flex top-[0%]  justify-between'>

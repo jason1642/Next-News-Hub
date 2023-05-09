@@ -12,7 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@jason1642/react-dashboard-meter": "^0.0.914",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
     "@mui/styled-engine-sc": "^5.11.11",
@@ -28,6 +27,7 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-apexcharts": "^1.4.0",
+    "react-dashboard-meter": "^0.0.919",
     "react-dom": "18.2.0",
     "react-rain-animation": "^1.0.4",
     "react-rainfall": "^0.1.5305",

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import CardContainer from './CardContainer';
-import { GaugeMeter } from '@jason1642/react-dashboard-meter';
+import { GaugeMeter } from 'react-dashboard-meter';
 import AirIcon from '@mui/icons-material/Air';
 
 
 interface IWindCardProps {
 
-    value: number;
+    value: number; 
 }
 
 const WindCard: React.FunctionComponent<IWindCardProps> = ({ value }) => {
@@ -14,7 +14,18 @@ const WindCard: React.FunctionComponent<IWindCardProps> = ({ value }) => {
     return (
         <CardContainer Icon={AirIcon} title={'Wind'}>
                    <GaugeMeter
-                value={33}
+                   progressBarOptions={{fillerTriColors: '#60a5fa', emptyAreaColor: '#d1e6ff'}}
+                   labelOptions={{labelStyles: {fontSize: '.75rem'}}}
+                   
+                   titleOptions={
+                    {
+                        valueTextStyles: {fontSize: '1.3rem', marginRight: '3px'},
+                         appendedTextStyles: {fontSize: '1rem'},
+                         appendedText: 'Mph'
+                    }
+                    }
+                value={value}
+                range={[0,40]}
                
             />
 
