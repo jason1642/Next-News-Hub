@@ -10,7 +10,7 @@ interface ISiteHeaderProps {
 
 const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
   return (
-    <header className='flex h-10 relative flex-row w-full py-7 justify-around items-center bg-black'>
+    <header className='flex h-10 relative flex-row w-full py-7 justify-around items-center bg-white'>
  <Link
   className='flex ml-5 h-full items-center justify-center'
    href="/">

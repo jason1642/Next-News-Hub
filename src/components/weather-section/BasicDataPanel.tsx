@@ -20,7 +20,7 @@ const BasicDataPanel: React.FunctionComponent<IBasicDataPanelProps> = ({weatherD
               
             }
           }
-        className='rounded-l-xl basis-1/3 relative p-4 font-light text-white'>
+        className='rounded-l-xl basis-2/12 relative p-4 font-light text-white'>
           <Rain
           dropletOpacity={1}
             dropletColor='rgb(255, 255, 255)'

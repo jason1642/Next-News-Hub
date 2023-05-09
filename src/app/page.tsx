@@ -9,13 +9,13 @@ import WeatherDashboard from '../components/weather-section/Container'
 
 export default function Home() {
 
-// const getNewsData = async()=> {
-//   // await axios.get('/api/users').then(res=>console.log(res.data))
-//   const response = await axios(`https ://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.NEXT_PUBLIC_NYTIMES_API_KEY}`)
-// setNewsData(response.data.results)
-//   // console.log(response) 
-//   return response
-// } 
+const getNewsData = async()=> {
+  // await axios.get('/api/users').then(res=>console.log(res.data))
+  const response = await axios(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.NEXT_PUBLIC_NYTIMES_API_KEY}`)
+setNewsData(response.data.results)
+  // console.log(response) 
+  return response
+} 
  
  
 // const rainy: rainEffect = undefined;
@@ -26,14 +26,14 @@ const [newsData, setNewsData] = useState<Array<any>>()
     // getData()
     // console.log(Rain)
        
-    // getNewsData()
+    getNewsData()
   },[])
   
   return ( 
 
     <main 
     
-    className='flex mt-5 flex-col justify-center relative mx-auto content-middle text-black'>
+    className='flex mt-5 flex-col justify-center relative mx-auto content-middle'>
       
       {/* {<Rain/>} */}
 
@@ -47,7 +47,7 @@ const [newsData, setNewsData] = useState<Array<any>>()
       }
 
       
-  <section className='flex  max-w-8xl h-full mx-auto relative justify-center content-middle text-black '>
+  <section className='flex  max-w-8xl w-[80%] h-full mx-auto relative justify-center content-middle text-black '>
 
    
 

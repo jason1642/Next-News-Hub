@@ -13,19 +13,21 @@ const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weat
   console.log(weatherData.currentConditions.wspd)
   const {humidity, precip, wspd}  = weatherData.currentConditions
   return (
-    <div className='border rounded-r-xl basis-2/3 bg-blue-100 p-4'>
+    <div className='border grow rounded-r-xl basis-2/3 bg-blue-100 p-4'>
 
 
     
         {/* Header */}
-        <div className='py-2 text-2xl font-extralight'>
+        <div className='py-2 text-xl font-light'>
             Currently displaying the weather for {_.startCase(location.split(',')[0])}
         </div>
         {/* Weather line graph */}
         {/* Table of hourly weather information, sectioned by days */}
        <HourlyChart weatherData={weatherData}/>
 
-
+    <div className='mt-5 text-lg font-light'>
+      More details of today's weather
+    </div>
   <div className='p-4 w-full flex justify-between'>
           {/* Bento Card Details Section*/}
 
