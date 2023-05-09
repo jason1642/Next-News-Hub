@@ -43,7 +43,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
   }, [hourlyWeatherData]);
 
   return (
-      <div className='rounded-xl bg-blue-400' style={{ margin: '0 auto', padding: '20px' }}>
+      <div className='rounded-xl bg-blue-400' style={{ margin: '0 auto', marginLeft:'1rem', display:'flex', padding: '20px',color:'white'}}>
           {hourlyWeatherData &&
 
               <AreaChart
@@ -69,7 +69,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                       tickFormatter={(val) => `${val}\u00b0`}
                       dataKey={'temp'}
                       orientation='top'
-                      tick={{ fontSize: '1.1rem', }}
+                      tick={{ fontSize: '1.1rem', fill:'white'}}
                   />
 
                   <Area xAxisId={2} type="natural" dataKey="temp" stroke="#8884d8" />
@@ -83,6 +83,7 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
                       xAxisId={2}
                       tickLine={false}
                       // type='category' 
+
                       axisLine={false}
                       //   tickFormatter={(val)=>`${val}`}
                       dataKey={'icon'}
@@ -94,18 +95,20 @@ const HourlyChart: React.FunctionComponent<IHourlyChartProps> = ({weatherData}) 
 
 
 
-                  <Area hide={true} xAxisId={3} type="natural" dataKey="condition" stroke="#8884d8" />
+                  <Area hide={true} xAxisId={3} type="natural" dataKey="condition"  stroke="#8884d8" />
                   <XAxis
                     //   allowDuplicatedCategory={true}
                     //   allowDataOverflow={true}
                     // hide
+              
                       type="category"
                       xAxisId={3}
                       tickLine={false}
                       axisLine={false}
                       dataKey="dateTime"
                       orientation='top'
-                      tick={{ fontSize: '1rem', }}
+                      tick={{ fontSize: '.9rem', fill:'white'}}
+                      style={{color:'white'}}
                       interval={0}
                   />
 
