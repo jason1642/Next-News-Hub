@@ -3,6 +3,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import './SiteHeader.css'
 import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
 
 interface ISiteHeaderProps {
 }
@@ -30,14 +31,15 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
                 margin='none'
                 label="Search" 
                 size='small'
-                variant="outlined"
+                variant="standard"
                  />
       <button 
         className='
-        rounded-sm
-          px-3 py-0 text-lg  bg-blue-500
          '
-      >Search</button>
+         onClick={()=>{
+          console.log('clicked')
+         }}
+      ><SearchIcon style={{color:'grey', fontSize:'2rem'}}></SearchIcon></button>
     
       </div>
 
