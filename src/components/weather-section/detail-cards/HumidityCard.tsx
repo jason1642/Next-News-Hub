@@ -10,24 +10,39 @@ interface IHumidityCardProps {
 }
 
 const ProgressMeter = styled(LinearProgress)`
-  
+  height: .6rem;
+  margin: 10px auto;
+  border-radius:12px;
+`;
+
+const StatusValue = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content: center;
+`;
+const Span = styled.span`
+  font-weight:bold;
+  margin-right: 4px;
 `;
 // 0 - 100% : good - normal - bad
 const HumidityCard: React.FunctionComponent<IHumidityCardProps> = ({value,}) => {
     const statusText = React.useMemo(()=>{
       if(value < 33){
-        return 'Okay'
+        return 'Good'
       } else if(value < 66){
-        return 'Moderate'
+        return 'Normal'
       } else {
         return 'Bad'
       }
     },[value])
     return (
     <CardContainer Icon={WaterDropIcon} title={'Humidity'}>
-      {statusText}
+      <StatusValue> <Span>{value.toFixed(0)}%</Span>
+       {statusText}
+        </StatusValue> 
+       
 
-    <LinearProgress variant="determinate" value={value} />
+    <ProgressMeter variant="determinate" value={value} />
 
     </CardContainer>
   );

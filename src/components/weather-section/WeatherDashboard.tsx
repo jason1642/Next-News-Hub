@@ -18,7 +18,7 @@ const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weat
 
     
         {/* Header */}
-        <div className=''>
+        <div className='py-2 text-2xl font-extralight'>
             Currently displaying the weather for {_.startCase(location.split(',')[0])}
         </div>
         {/* Weather line graph */}
@@ -26,7 +26,7 @@ const WeatherDashboard: React.FunctionComponent<IWeatherDashboardProps> = ({weat
        <HourlyChart weatherData={weatherData}/>
 
 
-  <div className='p-4 w-full flex justify-between bg-green-300'>
+  <div className='p-4 w-full flex justify-between'>
           {/* Bento Card Details Section*/}
 
       <HumidityCard value={humidity}/>

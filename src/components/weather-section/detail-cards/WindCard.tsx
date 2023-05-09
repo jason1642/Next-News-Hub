@@ -14,7 +14,7 @@ const WindCard: React.FunctionComponent<IWindCardProps> = ({ value }) => {
     return (
         <CardContainer Icon={AirIcon} title={'Wind'}>
                    <GaugeMeter
-                   progressBarOptions={{fillerTriColors: '#60a5fa', emptyAreaColor: '#d1e6ff'}}
+                   progressBarOptions={{fillerTriColors: '#60a5fa', emptyAreaColor: '#b2d3f3'}}
                    labelOptions={{labelStyles: {fontSize: '.75rem'}}}
                    
                    titleOptions={
