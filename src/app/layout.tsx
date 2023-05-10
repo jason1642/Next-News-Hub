@@ -1,8 +1,7 @@
 
 import './globals.css'
 import Header from '../components/Header/SiteHeader'
-// import ReactRain from 'react-rain-animation'
-// import "react-rain-animation/lib/style.css";
+
 export const metadata = {
   title: 'Next News Hub',
   description: 'Welcome to Next News Hub',

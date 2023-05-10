@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import Cors from 'cors'
 
 
 // export async function GET(req: NextApiRequest, res:NextApiResponse) {
