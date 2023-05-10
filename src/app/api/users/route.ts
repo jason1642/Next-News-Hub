@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse, NextRequest } from 'next/server';
 
 
 // export async function GET(req: NextApiRequest, res:NextApiResponse) {
@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 //   return new Response('Hello, Next.js!')
 // }
-export const GET = async(req: NextApiRequest, res: NextApiResponse) =>{
+export const GET = async(req: NextRequest) =>{
   // const { pid } = req.query
   console.log(req)
   console.log('Thhihs is the handler api777')
