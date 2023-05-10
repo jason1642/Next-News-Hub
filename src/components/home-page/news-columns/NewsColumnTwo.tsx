@@ -30,7 +30,7 @@ const NewsColumnTwo: React.FunctionComponent<{newsData: any}> = ({newsData})=> {
                 {/* Links List */}
                 <ul className="mb-5  w-11/12 ">
                 {
-                newsData.slice(7, 10).map((ele:any) =>     
+                newsData.slice(7, 9).map((ele:any) =>     
                     <li key={ele.uri} className="pb-2.5 border-b hover:cursor-pointer" onClick={() => window.open(ele.url, "_blank")}>{ele.title}</li>)}
                 </ul>
 

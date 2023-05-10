@@ -36,9 +36,6 @@ const SiteHeader: React.FunctionComponent<ISiteHeaderProps> = (props) => {
       <button 
         className='
          '
-         onClick={()=>{
-          console.log('clicked')
-         }}
       ><SearchIcon style={{color:'grey', fontSize:'2rem'}}></SearchIcon></button>
     
       </div>
